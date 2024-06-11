@@ -4,35 +4,33 @@ import { reactive, computed } from "vue";
 import axios from "axios";
 
 // export
-export const use_money_list_store = defineStore ("money_list". () => {
-    const BASEURI = "/api/items";
-    const states = reactive({ money_list: [] });
+export const use_money_list_store = defineStore("money_list", () => {
+  const BASEURI = "/api/items";
+  const states = reactive({ money_list: [] });
 
-
-    // money_list 목록 조회하기: fetch!!!
-    const fetch_money_list = async () => {
+  // money_list 목록 조회하기: fetch!!!
+  const fetch_money_list = async () => {
     try {
-        const response = await axios.get(BASEURI);
-        if (response.status === 200) {
+      const response = await axios.get(BASEURI);
+      if (response.status === 200) {
         state.money_list = response.data;
-        } else {
+      } else {
         alert("데이터 조회 실패");
-        }
+      }
     } catch (error) {
-        alert("에러발생 :" + error);
+      alert("에러발생 :" + error);
     }
-    };
+  };
 
+  // money_list 아이템 추가
+  // money_list 아이템 수정(변경)
+  // money_list 삭제
 
-    // money_list 아이템 추가
-    // money_list 아이템 수정(변경)
-    // money_list 삭제
+  // money_list 반응성 주기
+  const money_list = computed(() => state.money_list);
 
-    // money_list 반응성 주기
-    const money_list = computed(() => state.money_list)
-
-    return {
+  return {
     money_list,
     fetch_money_list,
-    }
+  };
 });
