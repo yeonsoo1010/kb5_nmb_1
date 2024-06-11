@@ -1,35 +1,24 @@
 <template>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <span class="navbar-brand ps-2">cutemoney</span>
-    <button
-      class="navbar-toggler"
-      type="button"
-      @click="isNavShow = !isNavShow"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div
-      :class="
-        isNavShow ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'
-      "
-    >
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link class="nav-link" to="/"> Home </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/Graph"> Graph </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/Percent"> Percent </router-link>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-sm bg-warning navbar-dark sticky-top">
+        <div class="container justify-content-between">
+            <router-link to="/" class="navbar-brand">가계부</router-link>
+            <div class="collapse navbar-collapse" id="mynavbar1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <PieChartLink />
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex">
+                <div class="collapse navbar-collapse d-none d-sm-block" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <router-link to="/profile" class="nav-link"> <i class="fa-solid fa-user-tie"></i> 프로필 </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const isNavShow = ref(false);
-</script>
+<script setup></script>
