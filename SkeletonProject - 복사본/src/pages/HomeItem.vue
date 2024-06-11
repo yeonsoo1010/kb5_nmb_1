@@ -12,5 +12,5 @@ defineProps({
 
 const router = useRouter();
 const money_list_store = use_money_list_store();
-const { deleteTodo } = todoListStore;
+const { deleteTodo, toggleDone } = todoListStore;
 </script>
