@@ -4,6 +4,7 @@ import Home from "@/pages/Home.vue";
 import Graph from "@/pages/Graph.vue";
 import AddItem from "@/pages/AddItem.vue";
 import EditItem from "@/pages/EditItem.vue";
+import Profile from "@/pages/Profile.vue";
 // import NotFound from "@/pages/NotFound.vue";
 
 const router = createRouter({
@@ -13,6 +14,7 @@ const router = createRouter({
         { path: "/graph", component: Graph },
         { path: "/additem", component: AddItem },
         { path: "/edititem/:id", component: EditItem },
+        { path: "/profile", component: Profile },
         // { path: "/:paths(.*)*", component: NotFound },
     ],
 });
