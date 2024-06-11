@@ -2,7 +2,7 @@
     "items": [
         {
             "id": "1",
-            "item": "돈까스",
+            "name": "돈까스",
             "category_id": "4",
             "price": "8000",
             "date": "2024-06-10",
@@ -10,7 +10,7 @@
         },
         {
             "id": "23",
-            "item": "버스",
+            "name": "버스",
             "category_id": "5",
             "price": "5000",
             "date": "2024-06-10",
@@ -18,7 +18,7 @@
         },
         {
             "id": "33",
-            "item": "월급",
+            "name": "월급",
             "category_id": "1",
             "price": "100000",
             "date": "2024-06-10",
@@ -26,7 +26,7 @@
         },
         {
             "id": "43",
-            "item": "용돈",
+            "name": "용돈",
             "category_id": "2",
             "price": "50000",
             "date": "2024-06-10",
@@ -58,27 +58,27 @@
         {
             "id": "4",
             "title": "식비",
-            "type": "spending"
+            "type": "outcome"
         },
         {
             "id": "5",
             "title": "교통",
-            "type": "spending"
+            "type": "outcome"
         },
         {
             "id": "6",
             "title": "쇼핑",
-            "type": "spending"
+            "type": "outcome"
         },
         {
             "id": "7",
             "title": "의료",
-            "type": "spending"
+            "type": "outcome"
         },
         {
             "id": "8",
             "title": "기타",
-            "type": "spending"
+            "type": "outcome"
         }
     ]
 }
