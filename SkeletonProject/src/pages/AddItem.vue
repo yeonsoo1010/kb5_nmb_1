@@ -65,7 +65,6 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { use_money_list_store } from '@/stores/ItemList.js';
 
-
 const router = useRouter();
 const { add_money, fetch_money_list } = use_money_list_store();
 const moneyItem = reactive({ name: '', price: 0, category_id: '' });

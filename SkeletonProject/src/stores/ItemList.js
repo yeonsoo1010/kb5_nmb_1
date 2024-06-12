@@ -23,6 +23,7 @@ export const use_money_list_store = defineStore('money_list', () => {
     }
   };
 
+  // category 목록 조회하기: fetch!!!
   const fetch_categories = async () => {
     try {
       const response = await axios.get(CATEGORYURI);
@@ -37,17 +38,10 @@ export const use_money_list_store = defineStore('money_list', () => {
   };
 
   // 새로운 money_list 아이템 추가합니다. -- +, - 버튼
-
-  const add_money = async (moneyItem, successCallback) => {
+  const add_money = async ({ name, price, category_id }, successCallback) => {
     try {
-      // 카테고리 ID가 있는지 확인
-      if (!moneyItem.category_id) {
-        alert('카테고리를 선택하세요.');
-        return;
-      }
-
-      const response = await axios.post(BASEURI, moneyItem);
-
+      const payload = { name, price, category_id };
+      const response = await axios.post(BASEURI, payload);
       if (response.status === 201) {
         state.money_list.push({ ...response.data });
         successCallback();
@@ -59,6 +53,7 @@ export const use_money_list_store = defineStore('money_list', () => {
     }
   };
 
+  // 기존 money_list 아이템 변경합니다.
   const update_money = async (
     { id, name, category_id, price, date, memo },
     successCallback
@@ -100,11 +95,35 @@ export const use_money_list_store = defineStore('money_list', () => {
   // money_list 반응성 주기
   const money_list = computed(() => state.money_list);
 
+  // categories 반응성 주기
   const categories = computed(() => state.categories);
+
+  // 전체 수입 지출 합계 계산
+  const totalIncome = computed(() => {
+    return state.money_list
+      .filter(
+        (item) =>
+          state.categories.find((cat) => cat.id === item.category_id)?.type ===
+          'income'
+      )
+      .reduce((sum, item) => sum + item.price, 0);
+  });
+
+  const totalExpense = computed(() => {
+    return state.money_list
+      .filter(
+        (item) =>
+          state.categories.find((cat) => cat.id === item.category_id)?.type ===
+          'outcome'
+      )
+      .reduce((sum, item) => sum + item.price, 0);
+  });
 
   return {
     money_list,
     categories,
+    totalIncome,
+    totalExpense,
 
     add_money,
     update_money,
