@@ -1,8 +1,9 @@
 <template>
-
   <nav class="navbar navbar-expand-sm bg-warning navbar-dark sticky-top">
     <div class="container justify-content-between">
-      <router-link to="/" class="navbar-brand">가계부</router-link>
+      <router-link to="/" class="navbar-brand" @click="fetch_money_list"
+        >가계부</router-link
+      >
       <div class="collapse navbar-collapse" id="mynavbar1">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
@@ -16,18 +17,20 @@
           </li>
         </ul>
       </div>
-      <div class="d-flex">
+      <div class="d-flex justify-content-end">
+        <!-- 수정된 부분 -->
         <div class="collapse navbar-collapse d-none d-sm-block" id="mynavbar">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <router-link to="/profile" class="nav-link">
                 <i class="fa-solid fa-user-tie"></i> 프로필
               </router-link>
             </li>
           </ul>
-
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script setup>
