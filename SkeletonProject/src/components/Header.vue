@@ -22,8 +22,6 @@
             </li>
           </ul>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </template>
 <script setup></script>

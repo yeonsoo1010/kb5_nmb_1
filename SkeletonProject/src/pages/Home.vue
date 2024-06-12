@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <div class="row">
       <div class="col p-3">
@@ -29,6 +30,7 @@
 import { computed } from 'vue';
 import { use_money_list_store } from '@/stores/ItemList.js';
 import HomeItem from '@/components/HomeItem.vue';
+
 
 const money_list_store = use_money_list_store();
 const { fetch_money_list } = money_list_store;
