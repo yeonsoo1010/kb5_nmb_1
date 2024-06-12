@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         {{ moneyItem.name }} - {{ moneyItem.price }}원
-        <span class="float-end badge bg-secondary pointer m-1" @click="router.push(`/home/edit/:id/${moneyItem.id}`)"> 편집</span>
+        <span class="float-end badge bg-secondary pointer m-1" @click="router.push(`/home/edit/${moneyItem.id}`)"> 편집</span>
         <span class="float-end badge bg-secondary pointer m-1" @click="deleteMoneyItem(moneyItem.id)"> 삭제</span>
     </li>
 </template>
