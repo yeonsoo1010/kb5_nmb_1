@@ -1,7 +1,6 @@
 {
   "items": [
     {
-
       "id": "553d",
       "name": "돈까스",
       "price": 8000,
@@ -72,14 +71,12 @@
       "category_id": "5",
       "datetime": "2024-06-12T00:15:25.032Z",
       "memo": ""
-
     }
   ],
   "profile": [
     {
       "name": "",
-      "email": "",
-
+      "email": ""
     }
   ],
   "category": [
