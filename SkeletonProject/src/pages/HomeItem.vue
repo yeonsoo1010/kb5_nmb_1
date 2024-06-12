@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-import { use_money_list_store } from '@/stores/ItemList.js';
+import { useRouter } from "vue-router";
+import { use_money_list_store } from "@/stores/ItemList.js";
 
 defineProps({
   moneyItem: { type: Object, required: true },

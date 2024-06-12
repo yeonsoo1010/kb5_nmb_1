@@ -1,11 +1,11 @@
 // import
-import { defineStore } from 'pinia';
-import { reactive, computed } from 'vue';
-import axios from 'axios';
+import { defineStore } from "pinia";
+import { reactive, computed } from "vue";
+import axios from "axios";
 
 // export
-export const use_money_list_store = defineStore('money_list', () => {
-  const BASEURI = '/api/items';
+export const use_money_list_store = defineStore("money_list", () => {
+  const BASEURI = "/api/items";
   const state = reactive({ money_list: [] });
 
   // money_list 목록 조회하기: fetch!!!
@@ -15,10 +15,10 @@ export const use_money_list_store = defineStore('money_list', () => {
       if (response.status === 200) {
         state.money_list = response.data;
       } else {
-        alert('데이터 조회 실패');
+        alert("데이터 조회 실패");
       }
     } catch (error) {
-      alert('에러발생 :' + error);
+      alert("에러발생 :" + error);
     }
   };
 
@@ -28,7 +28,7 @@ export const use_money_list_store = defineStore('money_list', () => {
     try {
       // 카테고리 ID가 있는지 확인
       if (!moneyItem.category_id) {
-        alert('카테고리를 선택하세요.');
+        alert("카테고리를 선택하세요.");
         return;
       }
 
@@ -38,13 +38,12 @@ export const use_money_list_store = defineStore('money_list', () => {
         state.money_list.push({ ...response.data });
         successCallback();
       } else {
-        alert('Todo 추가 실패');
+        alert("Todo 추가 실패");
       }
     } catch (error) {
-      alert('에러발생 :' + error);
+      alert("에러발생 :" + error);
     }
   };
-
 
   const update_money = async (
     { id, name, category_id, price, date, memo },
@@ -60,10 +59,10 @@ export const use_money_list_store = defineStore('money_list', () => {
         state.money_list[index] = payload;
         successCallback();
       } else {
-        alert('기록 변경 실패');
+        alert("기록 변경 실패");
       }
     } catch (error) {
-      alert('에러발생 :' + error);
+      alert("에러발생 :" + error);
     }
   };
 
@@ -77,13 +76,19 @@ export const use_money_list_store = defineStore('money_list', () => {
         );
         state.money_list.splice(index, 1);
       } else {
-        alert('기록 삭제 실패');
+        alert("기록 삭제 실패");
       }
     } catch (error) {
-      alert('에러발생 :' + error);
+      alert("에러발생 :" + error);
     }
   };
-
+  const moneyItem = reactive({
+    name: "",
+    price: 0,
+    category_id: "",
+    memo: "",
+    date: "",
+  });
   // money_list 반응성 주기
   const money_list = computed(() => state.money_list);
 

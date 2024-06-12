@@ -71,12 +71,66 @@
       "category_id": "5",
       "datetime": "2024-06-12T00:15:25.032Z",
       "memo": ""
+    },
+    {
+      "id": "2bfa",
+      "name": "sdf",
+      "price": 1315,
+      "category_id": "6",
+      "datetime": "2024-06-12T01:42:38.152Z",
+      "memo": ""
+    },
+    {
+      "id": "33da",
+      "name": "코피코",
+      "price": 3000,
+      "category_id": "4",
+      "datetime": "2024-06-12T01:49:35.849Z",
+      "memo": "맛있음"
+    },
+    {
+      "id": "c04c",
+      "name": "애플펜슬",
+      "price": 180000,
+      "category_id": "6",
+      "datetime": "2024-06-12T01:59:04.055Z",
+      "memo": "필수적인 악세사리"
+    },
+    {
+      "id": "7287",
+      "name": "코피코피코",
+      "price": 5000,
+      "category_id": "6",
+      "datetime": "2024-06-08T00:00:00.000Z",
+      "memo": "맛있다!"
+    },
+    {
+      "id": "2826",
+      "name": "샌드위치",
+      "price": 0,
+      "category_id": "4",
+      "datetime": "2024-06-01T00:00:00.000Z",
+      "memo": "맛있다!!!"
+    },
+    {
+      "id": "8b4b",
+      "name": "감자탕",
+      "price": 15000,
+      "category_id": "4",
+      "datetime": "2024-06-11T00:00:00.000Z",
+      "memo": "맛있다 소주도 먹음"
     }
   ],
   "profile": [
     {
       "name": "",
-      "email": ""
+      "email": "",
+      "id": "5042"
+    },
+    {
+      "id": "5cbf",
+      "name": "서수호",
+      "email": "soolmagpie@naver.com"
     }
   ],
   "category": [
