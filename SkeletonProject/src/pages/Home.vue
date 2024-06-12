@@ -1,20 +1,28 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col p-3">
-                <router-link class="btn btn-primary" to="/home/add"> 내역 추가 </router-link>
-                <button class="btn btn-primary ms-1" @click="fetch_money_list">목록 보기</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <ul class="list-group">
-                    <HomeItem_edit_delete v-for="moneyItem in money_list" :key="moneyItem.id" :moneyItem="moneyItem" />
-                </ul>
-            </div>
-        </div>
+  <div>
+    <div class="row">
+      <div class="col p-3">
+        <router-link class="btn btn-primary" to="/home/add">
+          내역 추가
+        </router-link>
+        <button class="btn btn-primary ms-1" @click="fetch_money_list">
+          목록 보기
+        </button>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <HomeItem_edit_delete
+            v-for="moneyItem in money_list"
+            :key="moneyItem.id"
+            :moneyItem="moneyItem"
+          />
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
