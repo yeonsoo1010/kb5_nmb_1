@@ -1,40 +1,81 @@
 <template>
-  <div>
-    <h1>프로필 입력</h1>
-    <form @submit.prevent="submitProfile">
-      <div class="form-group">
-        <label for="name"> <i class="fas fa-user"></i> 이름: </label>
-        <input type="text" id="name" v-model="name" required />
+  <div class="profile-container">
+    <div class="form-container-left">
+      <h1>프로필 입력</h1>
+      <form @submit.prevent="submitProfile">
+        <div class="form-group">
+          <label for="name"> <i class="fas fa-user"></i> 이름: </label>
+          <input type="text" id="name" v-model="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email"> <i class="fas fa-envelope"></i> 이메일: </label>
+          <input type="email" id="email" v-model="email" required />
+        </div>
+        <div class="button-container">
+          <button type="submit" class="btn btn-warning">
+            <i class="fas fa-save"></i> 저장
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="profile-info-right">
+      <div class="image-container">
+        <img src="../assets/profile-image.png" alt="profile" />
       </div>
-      <div class="form-group">
-        <label for="email"> <i class="fas fa-envelope"></i> 이메일: </label>
-        <input type="email" id="email" v-model="email" required />
+      <div class="profile-info">
+        <h2>프로필 정보</h2>
+        <p><strong>이름:</strong> {{ name }}</p>
+        <p><strong>이메일:</strong> {{ email }}</p>
       </div>
-      <button type="submit" class="btn btn-warning">
-        <i class="fas fa-save"></i> 저장
-      </button>
-    </form>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: "Profile",
   data() {
     return {
-      name: "",
-      email: "",
+      name: localStorage.getItem('profile_name') || '',
+      email: localStorage.getItem('profile_email') || '',
     };
   },
   methods: {
-    submitProfile() {
-      console.log("저장되었습니다:", this.name, this.email);
+    async submitProfile() {
+      try {
+        const response = await axios.post('http://localhost:3000/profile', {
+          name: this.name,
+          email: this.email,
+        });
+
+        alert('프로필 정보가 성공적으로 저장되었습니다.');
+
+        localStorage.setItem('profile_name', this.name);
+        localStorage.setItem('profile_email', this.email);
+      } catch (error) {
+        console.error('Error:', error);
+        alert('프로필 정보를 저장하는 중에 오류가 발생했습니다.');
+      }
     },
   },
 };
 </script>
 
 <style scoped>
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-container-left {
+  width: 50%;
+}
+
+.form-container-left h1 {
+  margin-bottom: 1rem;
+}
+
 .form-group {
   display: flex;
   align-items: center;
@@ -49,9 +90,14 @@ label {
 }
 
 input {
-  width: 50%;
+  flex: 1;
   padding: 0.5rem;
   font-size: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -63,5 +109,35 @@ button {
 
 button i {
   margin-right: 0.5rem;
+}
+
+.profile-info-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
+  max-width: 250px;
+  margin-bottom: 1rem;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info h2 {
+  margin-bottom: 0.5rem;
+}
+
+.profile-info p {
+  margin-bottom: 0.5rem;
 }
 </style>

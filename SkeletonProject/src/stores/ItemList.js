@@ -23,10 +23,17 @@ export const use_money_list_store = defineStore('money_list', () => {
   };
 
   // 새로운 money_list 아이템 추가합니다. -- +, - 버튼
-  const add_money = async ({ name, price }, successCallback) => {
+
+  const add_money = async (moneyItem, successCallback) => {
     try {
-      const payload = { name, price };
-      const response = await axios.post(BASEURI, payload);
+      // 카테고리 ID가 있는지 확인
+      if (!moneyItem.category_id) {
+        alert('카테고리를 선택하세요.');
+        return;
+      }
+
+      const response = await axios.post(BASEURI, moneyItem);
+
       if (response.status === 201) {
         state.money_list.push({ ...response.data });
         successCallback();
@@ -38,22 +45,7 @@ export const use_money_list_store = defineStore('money_list', () => {
     }
   };
 
-  //   const minus_money = async ({ todo, desc }, successCallback) => {
-  //     try {
-  //       const payload = { todo, desc };
-  //       const response = await axios.post(BASEURI, payload);
-  //       if (response.status === 201) {
-  //         state.todoList.push({ ...response.data, done: false });
-  //         successCallback();
-  //       } else {
-  //         alert('Todo 추가 실패');
-  //       }
-  //     } catch (error) {
-  //       alert('에러발생 :' + error);
-  //     }
-  //   };
 
-  // 기존 money_list 아이템 변경합니다.
   const update_money = async (
     { id, name, category_id, price, date, memo },
     successCallback
