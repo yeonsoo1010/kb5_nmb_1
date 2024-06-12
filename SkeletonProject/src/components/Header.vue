@@ -7,6 +7,9 @@
           <li class="nav-item">
             <PieChartLink />
           </li>
+          <li class="nav-item">
+            <router-link to="/Chart" class="nav-link">통계</router-link>
+          </li>
         </ul>
       </div>
       <div class="d-flex">

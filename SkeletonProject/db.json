@@ -1,84 +1,130 @@
 {
-    "items": [
-        {
-            "id": "1",
-            "item": "돈까스",
-            "category_id": "4",
-            "price": "8000",
-            "date": "2024-06-10",
-            "memo": ""
-        },
-        {
-            "id": "23",
-            "item": "버스",
-            "category_id": "5",
-            "price": "5000",
-            "date": "2024-06-10",
-            "memo": ""
-        },
-        {
-            "id": "33",
-            "item": "월급",
-            "category_id": "1",
-            "price": "100000",
-            "date": "2024-06-10",
-            "memo": ""
-        },
-        {
-            "id": "43",
-            "item": "용돈",
-            "category_id": "2",
-            "price": "50000",
-            "date": "2024-06-10",
-            "memo": ""
-        }
-    ],
-    "profile": [
-        {
-            "name": "",
-            "email": ""
-        }
-    ],
-    "category": [
-        {
-            "id": "1",
-            "title": "월급",
-            "type": "income"
-        },
-        {
-            "id": "2",
-            "title": "용돈",
-            "type": "income"
-        },
-        {
-            "id": "3",
-            "title": "기타",
-            "type": "income"
-        },
-        {
-            "id": "4",
-            "title": "식비",
-            "type": "spending"
-        },
-        {
-            "id": "5",
-            "title": "교통",
-            "type": "spending"
-        },
-        {
-            "id": "6",
-            "title": "쇼핑",
-            "type": "spending"
-        },
-        {
-            "id": "7",
-            "title": "의료",
-            "type": "spending"
-        },
-        {
-            "id": "8",
-            "title": "기타",
-            "type": "spending"
-        }
-    ]
+  "items": [
+    {
+      "id": "553d",
+      "name": "돈까스",
+      "price": 8000,
+      "category_id": "4",
+      "datetime": "2024-06-11T15:46:55.416Z",
+      "memo": ""
+    },
+    {
+      "id": "9832",
+      "name": "안과",
+      "price": 80000,
+      "category_id": "7",
+      "datetime": "2024-06-11T15:47:04.874Z",
+      "memo": ""
+    },
+    {
+      "id": "672e",
+      "name": "감자탕",
+      "price": 15000,
+      "category_id": "4",
+      "datetime": "2024-06-11T15:47:14.603Z",
+      "memo": ""
+    },
+    {
+      "id": "c823",
+      "name": "오마카세",
+      "price": 150000,
+      "category_id": "4",
+      "datetime": "2024-06-11T15:47:29.082Z",
+      "memo": ""
+    },
+    {
+      "id": "a31e",
+      "name": "신발",
+      "price": 200000,
+      "category_id": "6",
+      "datetime": "2024-06-11T15:47:46.742Z",
+      "memo": ""
+    },
+    {
+      "id": "c406",
+      "name": "지하철",
+      "price": 100000,
+      "category_id": "5",
+      "datetime": "2024-06-11T15:48:02.506Z",
+      "memo": ""
+    },
+    {
+      "id": "47fd",
+      "name": "경조사",
+      "price": 100000,
+      "category_id": "8",
+      "datetime": "2024-06-11T15:48:26.915Z",
+      "memo": ""
+    },
+    {
+      "id": "e7d7",
+      "name": "돈까스",
+      "price": 8000,
+      "category_id": "4",
+      "datetime": "2024-06-12T00:13:02.873Z",
+      "memo": ""
+    },
+    {
+      "id": "7922",
+      "name": "비행기",
+      "price": 200000,
+      "category_id": "5",
+      "datetime": "2024-06-12T00:15:25.032Z",
+      "memo": ""
+    }
+  ],
+  "profile": [
+    {
+      "name": "",
+      "email": "",
+      "id": "c8e7"
+    },
+    {
+      "id": "21e6",
+      "name": "서수호",
+      "email": "soolmagpie@naver.com"
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "title": "월급",
+      "type": "income"
+    },
+    {
+      "id": "2",
+      "title": "용돈",
+      "type": "income"
+    },
+    {
+      "id": "3",
+      "title": "기타",
+      "type": "income"
+    },
+    {
+      "id": "4",
+      "title": "식비",
+      "type": "outcome"
+    },
+    {
+      "id": "5",
+      "title": "교통",
+      "type": "outcome"
+    },
+    {
+      "id": "6",
+      "title": "쇼핑",
+      "type": "outcome"
+    },
+    {
+      "id": "7",
+      "title": "의료",
+      "type": "outcome"
+    },
+    {
+      "id": "8",
+      "title": "기타",
+      "type": "outcome"
+    }
+  ]
 }
