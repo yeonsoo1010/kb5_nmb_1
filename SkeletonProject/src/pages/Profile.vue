@@ -15,6 +15,9 @@
           <button type="submit" class="btn btn-warning">
             <i class="fas fa-save"></i> 저장
           </button>
+          <button type="button" class="btn btn-danger" @click="clearProfile">
+            초기화
+          </button>
         </div>
       </form>
     </div>
@@ -32,31 +35,38 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data() {
     return {
-      name: localStorage.getItem('profile_name') || '',
-      email: localStorage.getItem('profile_email') || '',
+      name: localStorage.getItem("profile_name") || "",
+      email: localStorage.getItem("profile_email") || "",
     };
   },
   methods: {
     async submitProfile() {
       try {
-        const response = await axios.post('http://localhost:3000/profile', {
+        const response = await axios.post("http://localhost:3000/profile", {
           name: this.name,
           email: this.email,
         });
 
-        alert('프로필 정보가 성공적으로 저장되었습니다.');
+        alert("프로필 정보가 성공적으로 저장되었습니다.");
 
-        localStorage.setItem('profile_name', this.name);
-        localStorage.setItem('profile_email', this.email);
+        localStorage.setItem("profile_name", this.name);
+        localStorage.setItem("profile_email", this.email);
       } catch (error) {
-        console.error('Error:', error);
-        alert('프로필 정보를 저장하는 중에 오류가 발생했습니다.');
+        console.error("Error:", error);
+        alert("프로필 정보를 저장하는 중에 오류가 발생했습니다.");
       }
+    },
+    clearProfile() {
+      // 로컬 스토리지에서 값을 제거하고 입력 필드를 공백으로 설정
+      localStorage.removeItem("profile_name");
+      localStorage.removeItem("profile_email");
+      this.name = "";
+      this.email = "";
     },
   },
 };
@@ -139,5 +149,8 @@ button i {
 
 .profile-info p {
   margin-bottom: 0.5rem;
+}
+.button-container button {
+  margin-right: 10px;
 }
 </style>
