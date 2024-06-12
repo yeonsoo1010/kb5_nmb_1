@@ -10,6 +10,9 @@
           <li class="nav-item">
             <router-link to="/Chart" class="nav-link">통계</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/summary" class="nav-link">요약보기</router-link>
+          </li>
         </ul>
       </div>
       <div class="d-flex">

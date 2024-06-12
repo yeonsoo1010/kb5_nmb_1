@@ -71,12 +71,21 @@
       "category_id": "5",
       "datetime": "2024-06-12T00:15:25.032Z",
       "memo": ""
+    },
+    {
+      "id": "d973",
+      "name": "ㅁㄴㅇ",
+      "price": 0,
+      "category_id": "4",
+      "datetime": "2024-06-12T01:59:35.928Z",
+      "memo": ""
     }
   ],
   "profile": [
     {
       "name": "",
-      "email": ""
+      "email": "",
+      "id": "ccac"
     }
   ],
   "category": [
