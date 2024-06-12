@@ -98,7 +98,7 @@ const moneyItem = reactive({
 
 const addMoneyHandler = () => {
   if (!moneyItem.name || moneyItem.name.trim() === "") {
-    alert("내역을 반드시 입력해야 합니다");
+    alert("sdfsds내역을 반드시 입력해야 합니다");
     return;
   }
 
