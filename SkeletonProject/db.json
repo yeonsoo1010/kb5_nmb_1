@@ -1,5 +1,4 @@
 {
-
   "items": [
     {
       "id": "553d",
@@ -96,6 +95,18 @@
       "category_id": "3",
       "datetime": "2024-05-12T01:58:35.928Z",
       "memo": ""
+    },
+    {
+      "id": "fd88",
+      "name": "밀크쉐이크",
+      "price": 4000,
+      "category_id": "4"
+    },
+    {
+      "id": "ca15",
+      "name": "딸기",
+      "price": 3000,
+      "category_id": "4"
     }
   ],
   "profile": [
@@ -147,5 +158,4 @@
       "type": "outcome"
     }
   ]
-
 }
