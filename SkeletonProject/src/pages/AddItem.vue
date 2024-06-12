@@ -51,9 +51,11 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import { useRouter } from "vue-router";
-import { use_money_list_store } from "@/stores/ItemList.js";
+
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { use_money_list_store } from '@/stores/ItemList.js';
+
 
 const router = useRouter();
 const { add_money, fetch_money_list } = use_money_list_store();
