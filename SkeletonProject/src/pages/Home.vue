@@ -1,28 +1,25 @@
 <template>
-
-
-
-  <div>
-    <div class="row align-items-center justify-content-between">
-      
-      <div class="col-auto p-3">
-        <button class="btn btn-outline-secondary">
-          <router-link to="/home/edit/editlist">
+    <div>
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto p-3">
+                <button class="btn btn-outline-secondary">
+                    <router-link to="/home/edit/editlist">
                         <i class="fa-regular fa-trash-can"> </i>
                     </router-link>
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-7">
-        <div class="list-container">
-          <ul class="list-group">
-            <HomeItem />
-            <!-- v-for="moneyItem in sortedMoneyList"
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <div class="list-container">
+                    <ul class="list-group">
+                        <HomeItem />
+                        <!-- v-for="moneyItem in sortedMoneyList"
               :key="moneyItem.id"
               :moneyItem="moneyItem" -->
-          </ul>
-
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -36,7 +33,6 @@ const money_list_store = use_money_list_store();
 const { fetch_money_list } = money_list_store;
 const money_list = computed(() => money_list_store.money_list);
 
-
 onMounted(fetch_money_list);
 
 const sortedMoneyList = computed(() => {
@@ -44,7 +40,6 @@ const sortedMoneyList = computed(() => {
         return new Date(a.date) - new Date(b.date);
     });
 });
-
 </script>
 
 <style scoped>
