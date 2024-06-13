@@ -23,13 +23,14 @@
                 </div>
             </div>
 
+
         </div>
     </nav>
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { use_money_list_store } from "@/stores/ItemList.js";
+import { computed } from 'vue';
+import { use_money_list_store } from '@/stores/ItemList.js';
 
 const money_list_store = use_money_list_store();
 const { fetch_money_list } = money_list_store;
