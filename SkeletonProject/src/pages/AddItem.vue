@@ -6,12 +6,17 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">
-                <div class="form-group mb-3">
-                    <label for="name">내역</label>
-                    <input type="text" class="form-control" id="moneyItem" v-model="moneyItem.name" />
-                </div>
+
+        <div class="form-group mb-3">
+          <label for="price">금액</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            v-model="moneyItem.price"
+          />
+        </div>
+
 
                 <div class="form-group mb-3">
                     <label for="price">가격</label>

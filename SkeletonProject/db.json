@@ -1,82 +1,48 @@
 {
   "items": [
     {
-      "id": "47fd",
-      "name": "경조사",
+
       "price": 100000,
-      "category_id": "8",
-      "datetime": "2024-06-11T15:48:26.915Z",
-      "memo": ""
-    },
-    {
-      "id": "e7d7",
-      "name": "돈까스",
-      "price": 8000,
-      "category_id": "4",
-      "datetime": "2024-06-12T00:13:02.873Z",
-      "memo": ""
-    },
-    {
-      "id": "7922",
-      "name": "비행기",
-      "price": 200000,
-      "category_id": "5",
-      "datetime": "2024-04-12T00:15:25.032Z",
-      "memo": ""
-    },
-    {
-      "id": "d973",
-      "name": "부모님용돈",
-      "price": 500000,
-      "category_id": "8",
-      "datetime": "2024-05-10T01:59:35.928Z",
-      "memo": ""
-    },
-    {
-      "id": "d946",
-      "name": "월급",
-      "price": 500000,
-      "category_id": "1",
-      "datetime": "2024-05-11T01:59:35.928Z",
-      "memo": ""
-    },
-    {
-      "id": "d989",
-      "name": "기타",
-      "price": 500,
       "category_id": "3",
-      "datetime": "2024-05-12T01:58:35.928Z",
-      "memo": ""
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "성의 표시"
     },
     {
-      "id": "9470",
-      "name": "하하",
-      "price": 900,
-      "category_id": "6"
-    },
-    {
-      "id": "49ea",
-      "name": "ㄷ",
-      "price": 0,
+      "id": "d58b",
+      "name": "오므라이스",
+      "price": 5500,
       "category_id": "4",
-      "datetime": "2024-06-11T00:00:00.000Z",
-      "memo": "ㅇㅇㅇ"
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "학생회관"
     },
     {
-      "id": "7534",
-      "name": "ㅇㅇㅇ",
-      "price": 0,
-      "category_id": "4",
-      "datetime": "2024-06-13T03:07:07.801Z",
-      "memo": "ㅇㅇㅇㅇ"
-    },
-    {
-      "id": "690b",
-      "name": "ㅇㅇㅇ",
-      "price": 0,
+      "id": "99fc",
+      "name": "버스",
+      "price": 4000,
       "category_id": "5",
-      "datetime": "2024-06-17T00:00:00.000Z",
-      "memo": "ㅇㅇㅇㅇ"
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "1"
+    },
+    {
+      "id": "1ceb",
+      "name": "트렌드",
+      "price": 50000,
+      "category_id": "6",
+      "datetime": "2024-06-06T00:00:00.000Z",
+      "memo": "빨버"
+    },
+    {
+      "id": "142e",
+      "name": "안과",
+      "price": 40000,
+      "category_id": "7",
+      "datetime": "2024-06-07T00:00:00.000Z",
+      "memo": "눈아픔"
+    },
+    {
+      "id": "e0a7",
+      "name": "기타",
+
     }
   ],
   "profile": [
@@ -86,9 +52,7 @@
       "id": "ccac"
     },
     {
-      "id": "17f4",
-      "name": "홍길동",
-      "email": "wpfkff525@naver.cod"
+
     }
   ],
   "category": [
