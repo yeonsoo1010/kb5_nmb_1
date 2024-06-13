@@ -1,13 +1,6 @@
 {
   "items": [
     {
-
-      "price": 100000,
-      "category_id": "3",
-      "datetime": "2024-06-13T00:00:00.000Z",
-      "memo": "성의 표시"
-    },
-    {
       "id": "d58b",
       "name": "오므라이스",
       "price": 5500,
@@ -40,9 +33,60 @@
       "memo": "눈아픔"
     },
     {
-      "id": "e0a7",
-      "name": "기타",
-
+      "id": "6911",
+      "name": "아이스크림",
+      "price": 100,
+      "category_id": "4",
+      "datetime": "2024-06-12T00:00:00.000Z",
+      "memo": "먹고싶다"
+    },
+    {
+      "id": "ff34",
+      "name": "용돈",
+      "price": 100,
+      "category_id": "2",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "방"
+    },
+    {
+      "id": "fdf9",
+      "name": "5월 용돈",
+      "price": 2500000,
+      "category_id": "2",
+      "datetime": "2024-05-08T00:00:00.000Z",
+      "memo": "용"
+    },
+    {
+      "id": "6133",
+      "name": "5월 용돈",
+      "price": 2000000,
+      "category_id": "2",
+      "datetime": "2024-05-15T00:00:00.000Z",
+      "memo": "ㅇㅇㅇ"
+    },
+    {
+      "id": "5c6b",
+      "name": "빵",
+      "price": 800,
+      "category_id": "4",
+      "datetime": "2024-04-10T00:00:00.000Z",
+      "memo": "ㅇㅇㅇㅇ"
+    },
+    {
+      "id": "a84c",
+      "name": "용돈",
+      "price": 10000,
+      "category_id": "1",
+      "datetime": "2024-06-12T00:00:00.000Z",
+      "memo": "ㅁㅁㅁ"
+    },
+    {
+      "id": "f8d1",
+      "name": "과자",
+      "price": 4000,
+      "category_id": "4",
+      "datetime": "2024-06-12T00:00:00.000Z",
+      "memo": "ㅁ"
     }
   ],
   "profile": [
@@ -51,9 +95,7 @@
       "email": "",
       "id": "ccac"
     },
-    {
-
-    }
+    {}
   ],
   "category": [
     {
