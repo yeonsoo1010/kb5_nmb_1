@@ -1,84 +1,43 @@
 {
   "items": [
     {
-      "id": "672e",
-      "name": "감자탕",
-      "price": 15000,
-      "category_id": "4",
-      "datetime": "2024-06-11T15:47:14.603Z",
-      "memo": ""
-    },
-    {
-      "id": "c823",
-      "name": "오마카세",
-      "price": 150000,
-      "category_id": "4",
-      "datetime": "2024-06-11T15:47:29.082Z",
-      "memo": ""
-    },
-    {
-      "id": "a31e",
-      "name": "신발",
-      "price": 200000,
-      "category_id": "6",
-      "datetime": "2024-06-11T15:47:46.742Z",
-      "memo": ""
-    },
-    {
-      "id": "c406",
-      "name": "지하철",
+
       "price": 100000,
-      "category_id": "5",
-      "datetime": "2024-06-08T15:48:02.506Z",
-      "memo": ""
-    },
-    {
-      "id": "47fd",
-      "name": "경조사",
-      "price": 100000,
-      "category_id": "8",
-      "datetime": "2024-06-11T15:48:26.915Z",
-      "memo": ""
-    },
-    {
-      "id": "e7d7",
-      "name": "돈까스",
-      "price": 8000,
-      "category_id": "4",
-      "datetime": "2024-06-12T00:13:02.873Z",
-      "memo": ""
-    },
-    {
-      "id": "7922",
-      "name": "비행기",
-      "price": 200000,
-      "category_id": "5",
-      "datetime": "2024-04-12T00:15:25.032Z",
-      "memo": ""
-    },
-    {
-      "id": "d973",
-      "name": "부모님용돈",
-      "price": 500000,
-      "category_id": "8",
-      "datetime": "2024-05-10T01:59:35.928Z",
-      "memo": ""
-    },
-    {
-      "id": "d946",
-      "name": "월급",
-      "price": 500000,
-      "category_id": "1",
-      "datetime": "2024-05-11T01:59:35.928Z",
-      "memo": ""
-    },
-    {
-      "id": "d989",
-      "name": "기타",
-      "price": 500,
       "category_id": "3",
-      "datetime": "2024-05-12T01:58:35.928Z",
-      "memo": ""
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "성의 표시"
+    },
+    {
+      "id": "d58b",
+      "name": "오므라이스",
+      "price": 5500,
+      "category_id": "4",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "학생회관"
+    },
+    {
+      "id": "99fc",
+      "name": "버스",
+      "price": 4000,
+      "category_id": "5",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "1"
+    },
+    {
+      "id": "1ceb",
+      "name": "트렌드",
+      "price": 50000,
+      "category_id": "6",
+      "datetime": "2024-06-06T00:00:00.000Z",
+      "memo": "빨버"
+    },
+    {
+      "id": "142e",
+      "name": "안과",
+      "price": 40000,
+      "category_id": "7",
+      "datetime": "2024-06-07T00:00:00.000Z",
+      "memo": "눈아픔"
     }
   ],
   "profile": [
@@ -86,6 +45,9 @@
       "name": "",
       "email": "",
       "id": "ccac"
+    },
+    {
+
     }
   ],
   "category": [
