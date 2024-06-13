@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="chart-area">
-        <canvas ref="chartCanvas" style="width: 400px; height: 400px"></canvas>
+        <canvas ref="chartCanvas" class="responsive-chart"></canvas>
       </div>
     </div>
     <div class="info">
@@ -40,29 +40,26 @@
       </div>
     </div>
     <div class="total-amount-chart">
-      <canvas
-        id="totalAmountChart"
-        style="width: 600px; height: 400px"
-      ></canvas>
+      <canvas id="totalAmountChart" class="responsive-chart"></canvas>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import axios from 'axios';
-import Chart from 'chart.js/auto';
+import { onMounted, ref, watch } from "vue";
+import axios from "axios";
+import Chart from "chart.js/auto";
 
 const chartAmounts = ref([]);
 const chartLabels = ref([]);
-const colors = ['#FFC94A', '#C08B5C', '#795458', 'rgb(87, 96, 101)', '#81A263'];
+const colors = ["#FFC94A", "#C08B5C", "#795458", "rgb(87, 96, 101)", "#81A263"];
 const chartCanvas = ref(null);
-const selectedMonth = ref('');
+const selectedMonth = ref("");
 const availableMonths = ref([]);
 const isDropdownOpen = ref(false);
-const totalAmount = ref(0); // 총 지출액을 ref로 선언
-let chartInstance = null; // Chart 인스턴스를 저장할 변수
-let totalAmountChartInstance = null; // 총 지출액 막대그래프 인스턴스를 저장할 변수
+const totalAmount = ref(0);
+let chartInstance = null;
+let totalAmountChartInstance = null;
 let outcomeCategories = [];
 let expenses = {};
 
@@ -77,16 +74,16 @@ const selectMonth = (month) => {
 
 const fetchData = async () => {
   try {
-    const itemsResponse = await axios.get('http://localhost:3000/items');
+    const itemsResponse = await axios.get("http://localhost:3000/items");
     const categoriesResponse = await axios.get(
-      'http://localhost:3000/category'
+      "http://localhost:3000/category"
     );
 
     const items = itemsResponse.data;
     const categories = categoriesResponse.data;
 
     outcomeCategories = categories.filter(
-      (category) => category.type === 'outcome'
+      (category) => category.type === "outcome"
     );
 
     const outcomeCategoryMap = outcomeCategories.reduce((acc, category) => {
@@ -101,7 +98,7 @@ const fetchData = async () => {
         const date = new Date(item.datetime);
         const month = `${date.getFullYear()}-${(date.getMonth() + 1)
           .toString()
-          .padStart(2, '0')}`;
+          .padStart(2, "0")}`;
 
         if (!expenses[month]) {
           expenses[month] = { totalAmount: 0, categoryAmounts: {} };
@@ -123,17 +120,16 @@ const fetchData = async () => {
       selectedMonth.value = availableMonths.value[0];
     }
 
-    // Update chartLabels with category titles using category IDs
     chartLabels.value = Object.keys(
       expenses[selectedMonth.value].categoryAmounts
     ).map((id) => {
       const category = outcomeCategories.find((category) => category.id === id);
-      return category ? category.title : '기타';
+      return category ? category.title : "기타";
     });
 
     return { outcomeCategories, expenses };
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
   }
 };
 
@@ -144,39 +140,32 @@ const updateChart = () => {
   totalAmount.value = monthData.totalAmount;
   chartLabels.value = Object.keys(monthData.categoryAmounts).map((id) => {
     const category = outcomeCategories.find((category) => category.id === id);
-    return category ? category.title : '기타';
+    return category ? category.title : "기타";
   });
   chartAmounts.value = Object.values(monthData.categoryAmounts);
 
-  const ctx = chartCanvas.value.getContext('2d');
+  const ctx = chartCanvas.value.getContext("2d");
 
   if (chartInstance) {
     chartInstance.destroy();
   }
 
   chartInstance = new Chart(ctx, {
-    type: 'doughnut',
+    type: "doughnut",
     data: {
       labels: chartLabels.value,
       datasets: [
         {
           data: chartAmounts.value,
           backgroundColor: colors,
-          borderColor: '#fff',
+          borderColor: "#fff",
           borderWidth: 1,
         },
       ],
     },
     options: {
-      aspectRatio: 0.8, // 가로 및 세로 비율 조정
-      layout: {
-        padding: {
-          top: 20,
-          bottom: 20,
-          left: 20,
-          right: 20,
-        },
-      },
+      responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           display: true,
@@ -184,12 +173,12 @@ const updateChart = () => {
         tooltip: {
           callbacks: {
             label: (context) => {
-              let label = context.label || '';
+              let label = context.label || "";
               if (label) {
-                label += ': ';
+                label += ": ";
               }
               const value = context.raw || 0;
-              label += value.toLocaleString() + '원';
+              label += value.toLocaleString() + "원";
               return label;
             },
           },
@@ -197,8 +186,8 @@ const updateChart = () => {
         doughnutLabel: {
           labels: [
             {
-              render: 'percentage',
-              fontColor: '#fff',
+              render: "percentage",
+              fontColor: "#fff",
               precision: 0,
               fontSize: 14,
             },
@@ -208,45 +197,43 @@ const updateChart = () => {
     },
   });
 
-  // 월별 총 지출액 차트 생성
   if (totalAmountChartInstance) {
     totalAmountChartInstance.destroy();
   }
 
   const totalAmountCtx = document
-    .getElementById('totalAmountChart')
-    .getContext('2d');
+    .getElementById("totalAmountChart")
+    .getContext("2d");
   totalAmountChartInstance = new Chart(totalAmountCtx, {
-    type: 'bar',
+    type: "bar",
     data: {
       labels: availableMonths.value,
       datasets: [
         {
-          label: '월별 총 지출액',
+          label: "월별 총 지출액",
           data: availableMonths.value.map(
             (month) => expenses[month]?.totalAmount || 0
           ),
-          backgroundColor: '#007bff', // 색상은 여기에 맞게 수정하세요.
-          borderColor: '#007bff',
+          backgroundColor: "#C7C8CC",
+          borderColor: "#C7C8CC",
           borderWidth: 1,
+          hoverBackgroundColor: "#413F42",
         },
       ],
     },
     options: {
-      indexAxis: 'x', // 가로 막대그래프로 설정
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           display: false,
         },
         title: {
-          // 새로운 title 객체 추가
           display: true,
-          text: '월별 총 지출액',
-          fontSize: 30, // 월별 총 지출액 제목 글자 크기 조절
+          text: "월별 총 지출액",
+          fontSize: 16,
         },
       },
-      aspectRatio: 1.2,
     },
   });
 };
@@ -262,36 +249,45 @@ watch(selectedMonth, updateChart);
 <style scoped>
 .chart-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .chart-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px;
 }
 
 .chart-area {
-  margin-right: 50px; /* 도넛 차트와 정보 사이 간격 조절 */
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* 총 지출액 및 세부 항목 오른쪽 정렬 */
+  align-items: center;
+  margin: 10px;
 }
 
 .total-amount-chart {
-  margin-left: 50px; /* 막대 그래프와 정보 사이 간격 조절 */
+  width: 100%;
+  max-width: 700px;
+  height: 450px;
+  margin-top: 20px;
 }
 
 .total-amount {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .legend {
-  flex: 1;
+  text-align: center;
 }
 
 .legend h3 {
@@ -306,6 +302,7 @@ watch(selectedMonth, updateChart);
 .legend li {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 5px;
 }
 
@@ -328,15 +325,15 @@ watch(selectedMonth, updateChart);
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
-  width: 150px; /* 선택 상자의 너비 조정 */
+  width: 150px;
 }
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 5px); /* 선택 상자 아래에 나타나도록 위치 조정 */
+  top: calc(100% + 5px);
   left: 0;
   z-index: 10;
-  width: 150px; /* 드롭다운 메뉴의 너비 조정 */
+  width: 150px;
   max-height: 200px;
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -359,5 +356,10 @@ watch(selectedMonth, updateChart);
 
 .dropdown li:hover {
   background-color: #f0f0f0;
+}
+
+.responsive-chart {
+  width: 100% !important;
+  height: auto !important;
 }
 </style>

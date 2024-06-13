@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col p-3">
-        <h2>지출</h2>
+        <h2>수입</h2>
       </div>
     </div>
 
@@ -31,11 +31,9 @@
         <div class="form-group mb-3">
           <label for="category">카테고리</label>
           <select class="form-control" v-model="moneyItem.category_id">
-            <option value="4">식비</option>
-            <option value="5">교통</option>
-            <option value="6">쇼핑</option>
-            <option value="7">의료</option>
-            <option value="8">기타</option>
+            <option value="1">월급</option>
+            <option value="2">용돈</option>
+            <option value="3">기타</option>
           </select>
         </div>
 
