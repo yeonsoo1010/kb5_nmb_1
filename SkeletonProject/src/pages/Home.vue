@@ -2,11 +2,11 @@
     <div>
         <div class="row align-items-center justify-content-between">
             <div class="col-auto p-3">
-                <button class="btn btn-outline-secondary">
-                    <router-link to="/home/edit/editlist">
+                <router-link to="/home/edit/editlist">
+                    <button class="btn btn-outline-secondary">
                         <i class="fa-regular fa-trash-can"> </i>
-                    </router-link>
-                </button>
+                    </button>
+                </router-link>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -17,6 +17,7 @@
                         <!-- v-for="moneyItem in sortedMoneyList"
               :key="moneyItem.id"
               :moneyItem="moneyItem" -->
+                        <Footer></Footer>
                     </ul>
                 </div>
             </div>
