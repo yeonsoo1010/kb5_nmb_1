@@ -7,6 +7,7 @@ import PlusItem from "@/pages/PlusItem.vue";
 import EditItem from "@/pages/EditItem.vue";
 import Profile from "@/pages/Profile.vue";
 import Chart from "@/pages/Chart.vue";
+import Trashcan from "@/pages/Trashcan.vue";
 import Summary from "@/components/summary.vue";
 import HomeItem from "@/pages/HomeItem.vue";
 
@@ -19,6 +20,7 @@ const router = createRouter({
     { path: "/home/edit/:id", component: EditItem },
     { path: "/profile", component: Profile },
     { path: "/Chart", component: Chart },
+    { path: "/home/edit/editlist", component: Trashcan },
     { path: "/summary", component: Summary },
     { path: "/HomeItem", component: HomeItem },
   ],
