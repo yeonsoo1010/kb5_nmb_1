@@ -27,7 +27,7 @@
 <script setup>
 import { computed } from "vue";
 import { use_money_list_store } from "@/stores/ItemList.js";
-import HomeItem from "@/components/HomeItem.vue";
+import HomeItem from "@/pages/HomeItem_edit_delete.vue";
 import Footer from "@/components/Footer.vue";
 
 const money_list_store = use_money_list_store();
