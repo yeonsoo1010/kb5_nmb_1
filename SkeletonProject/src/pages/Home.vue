@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <div class="row align-items-center justify-content-between">
       <div class="col-auto p-3">
@@ -21,6 +22,7 @@
               :key="moneyItem.id"
               :moneyItem="moneyItem" -->
           </ul>
+
         </div>
       </div>
     </div>
@@ -31,12 +33,12 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import { computed } from "vue";
 import { use_money_list_store } from "@/stores/ItemList.js";
 import Footer from "@/components/Footer.vue";
 import HomeItem from "@/pages/HomeItem.vue";
+
 
 const money_list_store = use_money_list_store();
 const { fetch_money_list } = money_list_store;
@@ -53,5 +55,6 @@ const sortedMoneyList = computed(() => {
 .list-container {
   max-height: 550px;
   overflow-y: auto; /* 세로 스크롤 활성화 */
+
 }
 </style>

@@ -17,15 +17,12 @@
       <br />
       3. home 화면으로 돌아오면 끝 !
     </div>
-  </div>
-  <div></div>
-  <router-link id="plus" class="btn" to="/home/plus" style="text-align: center">
-    <i class="fa-solid fa-plus"></i> 수입
-  </router-link>
-  <div></div>
-  <router-link id="minus" class="btn" to="/home/add" style="text-align: center">
-    <i class="fa-solid fa-minus"></i> 지출
-  </router-link>
+
+    <div></div>
+    <router-link id="plus" class="btn" to="/home/add" style="text-align: center"> <i class="fa-solid fa-plus"></i> 수입 </router-link>
+    <div></div>
+    <router-link id="minus" class="btn" to="/home/add" style="text-align: center"> <i class="fa-solid fa-minus"></i> 지출 </router-link>
+
 </template>
 <script setup>
 import { useRouter } from "vue-router";
@@ -34,7 +31,7 @@ const router = useRouter();
 const goToAddItemPage = () => {
   router.push("/additem");
 };
-// box;
+
 const showMemo = ref(false);
 const toggleMemo = () => {
   showMemo.value = !showMemo.value;
@@ -57,6 +54,7 @@ const toggleMemo = () => {
   border-radius: 5px; /* 둥근 테두리 */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 3D 효과를 주는 그림자 */
   transition: box-shadow 0.3s ease; /* 부드러운 애니메이션 효과 */
+
 }
 .custom-button:hover {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* 호버시 그림자 증가 */
@@ -122,5 +120,6 @@ const toggleMemo = () => {
 }
 #question:hover {
   filter: brightness(1.3);
+
 }
 </style>

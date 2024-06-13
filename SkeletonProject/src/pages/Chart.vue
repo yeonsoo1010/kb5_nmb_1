@@ -1,21 +1,43 @@
 <template>
-  <div class="chart-container">
-    <div class="chart-wrapper">
-      <div class="controls">
-        <div class="custom-select">
-          <button @click="toggleDropdown" class="selected-option">
-            {{ selectedMonth }}
-          </button>
-          <ul class="dropdown" :class="{ show: isDropdownOpen }">
-            <li
-              v-for="month in availableMonths"
-              :key="month"
-              @click="selectMonth(month)"
-            >
-              {{ month }}
-            </li>
-          </ul>
+    <div class="chart-container">
+        <div class="chart-wrapper">
+            <br />
+            <br />
+            <div class="controls">
+                <div class="custom-select">
+                    <button @click="toggleDropdown" class="selected-option">
+                        {{ selectedMonth }}
+                    </button>
+                    <ul class="dropdown" :class="{ show: isDropdownOpen }">
+                        <li v-for="month in availableMonths" :key="month" @click="selectMonth(month)">
+                            {{ month }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="chart-area">
+                <canvas ref="chartCanvas" style="width: 400px; height: 400px"></canvas>
+            </div>
         </div>
+        <div class="info">
+            <div class="total-amount">
+                <h3>총 지출액</h3>
+                <p>{{ totalAmount.toLocaleString() }}원</p>
+            </div>
+            <div class="legend">
+                <h3>세부 항목</h3>
+                <ul>
+                    <li v-for="(label, index) in chartLabels" :key="index">
+                        <span class="legend-color" :style="{ backgroundColor: colors[index % colors.length] }"></span>
+                        {{ label }}: {{ chartAmounts[index].toLocaleString() }}원
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="total-amount-chart">
+            <canvas id="totalAmountChart" style="width: 600px; height: 400px"></canvas>
+        </div>
+
       </div>
       <div class="chart-area">
         <canvas ref="chartCanvas" class="responsive-chart"></canvas>
@@ -41,8 +63,8 @@
     </div>
     <div class="total-amount-chart">
       <canvas id="totalAmountChart" class="responsive-chart"></canvas>
+
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -64,15 +86,16 @@ let outcomeCategories = [];
 let expenses = {};
 
 const toggleDropdown = () => {
-  isDropdownOpen.value = !isDropdownOpen.value;
+    isDropdownOpen.value = !isDropdownOpen.value;
 };
 
 const selectMonth = (month) => {
-  selectedMonth.value = month;
-  isDropdownOpen.value = false;
+    selectedMonth.value = month;
+    isDropdownOpen.value = false;
 };
 
 const fetchData = async () => {
+
   try {
     const itemsResponse = await axios.get("http://localhost:3000/items");
     const categoriesResponse = await axios.get(
@@ -104,21 +127,45 @@ const fetchData = async () => {
           expenses[month] = { totalAmount: 0, categoryAmounts: {} };
         }
 
-        if (!expenses[month].categoryAmounts[item.category_id]) {
-          expenses[month].categoryAmounts[item.category_id] = 0;
+        items.forEach((item) => {
+            if (outcomeCategoryMap[item.category_id]) {
+                const date = new Date(item.datetime);
+                const month = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}`;
+
+                if (!expenses[month]) {
+                    expenses[month] = { totalAmount: 0, categoryAmounts: {} };
+                }
+
+                if (!expenses[month].categoryAmounts[item.category_id]) {
+                    expenses[month].categoryAmounts[item.category_id] = 0;
+                }
+
+                expenses[month].categoryAmounts[item.category_id] += parseFloat(item.price);
+                expenses[month].totalAmount += parseFloat(item.price);
+            }
+        });
+
+        availableMonths.value = Object.keys(expenses).sort();
+        if (availableMonths.value.length > 0) {
+            selectedMonth.value = availableMonths.value[0];
         }
 
-        expenses[month].categoryAmounts[item.category_id] += parseFloat(
-          item.price
-        );
-        expenses[month].totalAmount += parseFloat(item.price);
-      }
-    });
+        // Update chartLabels with category titles using category IDs
+        chartLabels.value = Object.keys(expenses[selectedMonth.value].categoryAmounts).map((id) => {
+            const category = outcomeCategories.find((category) => category.id === id);
+            return category ? category.title : "기타";
+        });
 
-    availableMonths.value = Object.keys(expenses).sort();
-    if (availableMonths.value.length > 0) {
-      selectedMonth.value = availableMonths.value[0];
+        return { outcomeCategories, expenses };
+    } catch (error) {
+        console.error("Error fetching data:", error);
     }
+};
+
+const updateChart = () => {
+    const monthData = expenses[selectedMonth.value];
+    if (!monthData) return;
+
 
     chartLabels.value = Object.keys(
       expenses[selectedMonth.value].categoryAmounts
@@ -126,6 +173,7 @@ const fetchData = async () => {
       const category = outcomeCategories.find((category) => category.id === id);
       return category ? category.title : "기타";
     });
+    chartAmounts.value = Object.values(monthData.categoryAmounts);
 
     return { outcomeCategories, expenses };
   } catch (error) {
@@ -236,11 +284,12 @@ const updateChart = () => {
       },
     },
   });
+
 };
 
 onMounted(async () => {
-  await fetchData();
-  updateChart();
+    await fetchData();
+    updateChart();
 });
 
 watch(selectedMonth, updateChart);
@@ -248,6 +297,7 @@ watch(selectedMonth, updateChart);
 
 <style scoped>
 .chart-container {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -288,74 +338,84 @@ watch(selectedMonth, updateChart);
 
 .legend {
   text-align: center;
+
 }
 
 .legend h3 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .legend ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 .legend li {
+
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 5px;
+
 }
 
 .legend-color {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  border-radius: 50%;
-  display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 .custom-select {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .selected-option {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  width: 150px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    border-color: #f0f0f0;
+    cursor: pointer;
+    height: 40px;
+    width: 150px; /* 선택 상자의 너비 조정 */
+}
+
+ul {
+    list-style-type: none;
 }
 
 .dropdown {
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  z-index: 10;
-  width: 150px;
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 0 0 5px 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: max-height 0.3s ease-in-out;
-  display: none;
+    position: absolute;
+    top: calc(100% + 5px); /* 선택 상자 아래에 나타나도록 위치 조정 */
+    left: 0;
+    z-index: 10;
+    width: 150px; /* 드롭다운 메뉴의 너비 조정 */
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.3s ease-in-out;
+    display: none;
+
 }
 
 .dropdown.show {
-  display: block;
+    display: block;
 }
 
 .dropdown li {
-  padding: 10px;
-  cursor: pointer;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .dropdown li:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .responsive-chart {

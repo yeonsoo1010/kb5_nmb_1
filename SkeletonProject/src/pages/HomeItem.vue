@@ -1,4 +1,5 @@
 <template>
+
   <div class="container">
     <h2>목록</h2>
     <ul class="item-container">
@@ -51,10 +52,12 @@ const uniqueItems = computed(() => {
       return true;
     }
   });
+
 });
 </script>
 
 <style scoped>
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -86,5 +89,6 @@ const uniqueItems = computed(() => {
 
 .item-content {
   text-align: right;
+
 }
 </style>
