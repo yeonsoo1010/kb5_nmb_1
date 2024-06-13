@@ -71,12 +71,26 @@
       "category_id": "5",
       "datetime": "2024-06-12T00:15:25.032Z",
       "memo": ""
+    },
+    {
+      "id": "14ba",
+      "name": "ㅇㅇㅇ",
+      "price": 0,
+      "category_id": "4",
+      "datetime": "2024-06-12T05:35:24.771Z",
+      "memo": ""
     }
   ],
   "profile": [
     {
       "name": "",
-      "email": ""
+      "email": "",
+      "id": "d39c"
+    },
+    {
+      "id": "f0e3",
+      "name": "ddd",
+      "email": "dddd@naver.com"
     }
   ],
   "category": [
