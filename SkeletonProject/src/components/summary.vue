@@ -1,255 +1,171 @@
 <template>
-  <div class="container">
-    <h1 style="text-align: center; font-size: 28px"></h1>
-    <ul class="nav nav-tabs justify-content-center" style="margin-bottom: 20px">
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          :class="{ active: currentTab === 'all' }"
-          @click="currentTab = 'all'"
-          style="font-size: 20px"
-          >전체</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          :class="{ active: currentTab === 'monthly' }"
-          @click="currentTab = 'monthly'"
-          style="font-size: 20px"
-          >월별</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          :class="{ active: currentTab === 'category' }"
-          @click="currentTab = 'category'"
-          style="font-size: 20px"
-          >카테고리별</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          :class="{ active: currentTab === 'asset' }"
-          @click="currentTab = 'asset'"
-          style="font-size: 20px"
-          >자산별</a
-        >
-      </li>
-    </ul>
+    <div class="container">
+        <h1 style="text-align: center; font-size: 28px"></h1>
+        <ul class="nav nav-tabs justify-content-center" style="margin-bottom: 20px">
+            <li class="nav-item">
+                <a class="nav-link" :class="{ active: currentTab === 'all' }" @click="currentTab = 'all'" style="font-size: 20px">전체</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" :class="{ active: currentTab === 'monthly' }" @click="currentTab = 'monthly'" style="font-size: 20px">월별</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" :class="{ active: currentTab === 'category' }" @click="currentTab = 'category'" style="font-size: 20px">카테고리별</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" :class="{ active: currentTab === 'asset' }" @click="currentTab = 'asset'" style="font-size: 20px">자산별</a>
+            </li>
+        </ul>
 
-    <div class="mt-3" style="text-align: center">
-      <div class="alert alert-info">
-        <div class="d-flex justify-content-center">
-          <div style="margin-right: 140px">
-            <h4>
-              수입:
-              <span style="color: blue">
-                {{ formatCurrency(alltotalIncome) }}원
-              </span>
-            </h4>
-          </div>
-          <div style="margin-right: 150px">
-            <h4>
-              지출:
-              <span style="color: red">
-                {{ formatCurrency(money_list_store.totalExpense) }}원
-              </span>
-            </h4>
-          </div>
-          <div>
-            <h4>
-              합계:
-              {{
-                formatCurrency(alltotalIncome - money_list_store.totalExpense)
-              }}원
-            </h4>
-          </div>
-        </div>
-      </div>
+        <div class="mt-3" style="text-align: center">
+            <div class="alert alert-info">
+                <div class="d-flex justify-content-center">
+                    <div style="margin-right: 140px">
+                        <h4>
+                            수입:
+                            <span style="color: blue"> {{ formatCurrency(alltotalIncome) }}원 </span>
+                        </h4>
+                    </div>
+                    <div style="margin-right: 150px">
+                        <h4>
+                            지출:
+                            <span style="color: red"> {{ formatCurrency(money_list_store.totalExpense) }}원 </span>
+                        </h4>
+                    </div>
+                    <div>
+                        <h4>
+                            합계:
+                            {{ formatCurrency(alltotalIncome - money_list_store.totalExpense) }}원
+                        </h4>
+                    </div>
+                </div>
+            </div>
 
-      <div v-if="currentTab === 'all'" class="tab-pane fade show active">
-        <div>
-          <div class="container">
-            <div class="row">
-              <div class="col-6">
+            <div v-if="currentTab === 'all'" class="tab-pane fade show active">
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <br />
+                                <h3>📃 목록</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <br />
-                <h3>📃 목록</h3>
-              </div>
+                <ul>
+                    <li v-for="item in allItems" :key="item.id" style="list-style-type: none">
+                        <div class="summary-item">
+                            <span class="date" style="color: gray">{{ formatDate(item.datetime) }}</span>
+                            <span class="name">{{ item.name }}</span>
+                            <span class="price" :style="{ color: getCategoryColor(item.category_id) }"> {{ formatCurrency(item.price) }}원 </span>
+                        </div>
+                        <hr style="border-color: gray; margin: 10px auto; width: 800px" />
+                    </li>
+                </ul>
             </div>
-          </div>
-        </div>
 
-        <br />
-        <ul>
-          <li
-            v-for="item in allItems"
-            :key="item.id"
-            style="list-style-type: none"
-          >
-            <div class="summary-item">
-              <span class="date" style="color: gray">{{
-                formatDate(item.datetime)
-              }}</span>
-              <span class="name">{{ item.name }}</span>
-              <span
-                class="price"
-                :style="{ color: getCategoryColor(item.category_id) }"
-              >
-                {{ formatCurrency(item.price) }}원
-              </span>
-            </div>
-            <hr style="border-color: gray; margin: 10px auto; width: 800px" />
-          </li>
-        </ul>
-      </div>
+            <div v-if="currentTab === 'monthly'" class="tab-pane fade show active">
+                <div v-for="(items, month) in monthlyItems" :key="month">
+                    <br />
 
-      <div v-if="currentTab === 'monthly'" class="tab-pane fade show active">
-        <div v-for="(items, month) in monthlyItems" :key="month">
-          <br />
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
+                                    <h4>{{ month }}월</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-          <div>
-            <div class="container">
-              <div class="row">
-                <div class="col-5">
-                  <h4>{{ month }}월</h4>
+                    <ul>
+                        <li v-for="item in items" :key="item.id" style="list-style-type: none">
+                            <div class="summary-item">
+                                <span class="date" style="color: gray">{{ formatDate(item.datetime) }}</span>
+                                <span class="name">{{ item.name }}</span>
+                                <span class="price" :style="{ color: getCategoryColor(item.category_id) }"> {{ formatCurrency(item.price) }}원 </span>
+                            </div>
+                            <hr style="border-color: gray; margin: 10px auto; width: 800px" />
+                        </li>
+                    </ul>
                 </div>
-              </div>
             </div>
-          </div>
 
-          <ul>
-            <li
-              v-for="item in items"
-              :key="item.id"
-              style="list-style-type: none"
-            >
-              <div class="summary-item">
-                <span class="date" style="color: gray">{{
-                  formatDate(item.datetime)
-                }}</span>
-                <span class="name">{{ item.name }}</span>
-                <span
-                  class="price"
-                  :style="{ color: getCategoryColor(item.category_id) }"
-                >
-                  {{ formatCurrency(item.price) }}원
-                </span>
-              </div>
-              <hr style="border-color: gray; margin: 10px auto; width: 800px" />
-            </li>
-          </ul>
-        </div>
-      </div>
+            <div v-if="currentTab === 'category'" class="tab-pane fade show active">
+                <h2></h2>
+                <div v-for="(items, category) in categoryItems" :key="category">
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
+                                    <br />
+                                    <h4>{{ categoryTitle(category) }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-      <div v-if="currentTab === 'category'" class="tab-pane fade show active">
-        <h2></h2>
-        <div v-for="(items, category) in categoryItems" :key="category">
-          <div>
-            <div class="container">
-              <div class="row">
-                <div class="col-5">
-                  <br>
-                  <h4>{{ categoryTitle(category) }}</h4>
+                    <ul>
+                        <li v-for="item in items" :key="item.id" style="list-style-type: none">
+                            <div class="summary-item">
+                                <span class="date" style="color: gray">{{ formatDate(item.datetime) }}</span>
+                                <span class="name">{{ item.name }}</span>
+                                <span class="price" :style="{ color: getCategoryColor(item.category_id) }"> {{ formatCurrency(item.price) }}원 </span>
+                            </div>
+
+                            <hr style="border-color: gray; margin: 10px auto; width: 800px" />
+                        </li>
+                    </ul>
                 </div>
-              </div>
             </div>
-          </div>
 
-          <ul>
-            <li
-              v-for="item in items"
-              :key="item.id"
-              style="list-style-type: none"
-            >
-              <div class="summary-item">
-                <span class="date" style="color: gray">{{
-                  formatDate(item.datetime)
-                }}</span>
-                <span class="name">{{ item.name }}</span>
-                <span
-                  class="price"
-                  :style="{ color: getCategoryColor(item.category_id) }"
-                >
-                  {{ formatCurrency(item.price) }}원
-                </span>
-              </div>
+            <div v-if="currentTab === 'asset'" class="tab-pane fade show active">
+                <h2></h2>
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-5">
+                                <h4>💵 현금</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-              <hr style="border-color: gray; margin: 10px auto; width: 800px" />
-            </li>
-          </ul>
-        </div>
-      </div>
+                <br />
+                <ul>
+                    <li v-for="item in cashItems" :key="item.id" style="list-style-type: none">
+                        <div class="summary-item">
+                            <span class="date" style="color: gray">{{ formatDate(item.datetime) }}</span>
+                            <span class="name">{{ item.name }}</span>
+                            <span class="price" :style="{ color: getCategoryColor(item.category_id) }"> {{ formatCurrency(item.price) }}원 </span>
+                        </div>
+                        <hr style="border-color: gray; margin: 10px auto; width: 800px" />
+                    </li>
+                </ul>
+                <br />
 
-      <div v-if="currentTab === 'asset'" class="tab-pane fade show active">
-        <h2></h2>
-        <div>
-          <div class="container">
-            <div class="row">
-              <div class="col-5">
-                <h4>💵 현금</h4>
-              </div>
-            </div>
-          </div>
-        </div>
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-5">
+                                <h4>💳 카드</h4>
+                            </div>
+                        </div>
+                    </div>
 
-        <br />
-        <ul>
-          <li
-            v-for="item in cashItems"
-            :key="item.id"
-            style="list-style-type: none"
-          >
-            <div class="summary-item">
-              <span class="date" style="color: gray">{{
-                formatDate(item.datetime)
-              }}</span>
-              <span class="name">{{ item.name }}</span>
-              <span
-                class="price"
-                :style="{ color: getCategoryColor(item.category_id) }"
-              >
-                {{ formatCurrency(item.price) }}원
-              </span>
-            </div>
-            <hr style="border-color: gray; margin: 10px auto; width: 800px" />
-          </li>
-        </ul>
-        <br />
-
-        <div>
-          <div class="container">
-            <div class="row">
-              <div class="col-5">
-                <h4>💳 카드</h4>
-              </div>
-            </div>
-          </div>
-
-          <br />
-          <ul>
-            <li
-              v-for="item in cardItems"
-              :key="item.id"
-              style="list-style-type: none"
-            >
-              <div class="summary-item">
-                <span class="date" style="color: gray">{{
-                  formatDate(item.datetime)
-                }}</span>
-                <span class="name">{{ item.name }}</span>
-                <span
-                  class="price"
-                  :style="{ color: getCategoryColor(item.category_id) }"
-                >
-                  {{ formatCurrency(item.price) }}원
-                </span>
-              </div>
-              <hr style="border-color: gray; margin: 10px auto; width: 800px" />
-
-            </li>
+                    <br />
+                    <ul>
+                        <li v-for="item in cardItems" :key="item.id" style="list-style-type: none">
+                            <div class="summary-item">
+                                <span class="date" style="color: gray">{{ formatDate(item.datetime) }}</span>
+                                <span class="name">{{ item.name }}</span>
+                                <span class="price" :style="{ color: getCategoryColor(item.category_id) }"> {{ formatCurrency(item.price) }}원 </span>
+                            </div>
+                            <hr style="border-color: gray; margin: 10px auto; width: 800px" />
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -310,7 +226,6 @@ console.log("totalExpense : ", money_list_store.totalExpense);
 //     })
 // );
 
-
 const monthlyItems = computed(() => {
     return allItems.value.reduce((acc, item) => {
         const month = new Date(item.datetime).getMonth() + 1;
@@ -333,22 +248,14 @@ const categoryItems = computed(() => {
     }, {});
 });
 
-const cashItems = computed(() =>
-  allItems.value.filter((item) => item.asset_type === 'cash')
-);
+const cashItems = computed(() => allItems.value.filter((item) => item.asset_type === "cash"));
 
-const cardItems = computed(() =>
-  allItems.value.filter((item) => item.asset_type === 'card')
-);
+const cardItems = computed(() => allItems.value.filter((item) => item.asset_type === "card"));
 
 const categoryTitle = (categoryId) => {
-
-  const category = money_list_store.categories.find(
-    (cat) => cat.id === categoryId
-  );
-  const icon = categoryIcons[categoryId] || '❓'; // 기본 아이콘 설정
-  return category ? `${icon} ${category.title}` : 'Unknown';
-
+    const category = money_list_store.categories.find((cat) => cat.id === categoryId);
+    const icon = categoryIcons[categoryId] || "❓"; // 기본 아이콘 설정
+    return category ? `${icon} ${category.title}` : "Unknown";
 };
 
 const formatCurrency = (value) => {
@@ -360,31 +267,30 @@ const formatDate = (datetime) => {
     return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
 };
 
-
 const categoryIcons = {
-  1: '💰',
-  2: '🎁',
-  3: '📦',
-  4: '🍴', // 식비 아이콘
-  5: '🚇', // 교통 아이콘
-  6: '🛍️', // 쇼핑 아이콘
-  7: '💊', // 의료 아이콘
-  8: '🔧', // 기타 아이콘
+    1: "💰",
+    2: "🎁",
+    3: "📦",
+    4: "🍴", // 식비 아이콘
+    5: "🚇", // 교통 아이콘
+    6: "🛍️", // 쇼핑 아이콘
+    7: "💊", // 의료 아이콘
+    8: "🔧", // 기타 아이콘
 };
 
 const categoryColors = {
-  1: 'blue',
-  2: 'blue',
-  3: 'blue',
-  4: 'red',
-  5: 'red',
-  6: 'red',
-  7: 'red',
-  8: 'red',
+    1: "blue",
+    2: "blue",
+    3: "blue",
+    4: "red",
+    5: "red",
+    6: "red",
+    7: "red",
+    8: "red",
 };
 
 const getCategoryColor = (categoryId) => {
-  return categoryColors[categoryId] || 'black';
+    return categoryColors[categoryId] || "black";
 };
 
 // 로딩될 때 자동으로 불러올 수 있도록 -> onMounted(fetch_money_list)는 그냥 목록이 바로 불러와지는 것, 그걸 계산하는 코드가 자동으로 진행되어야!
@@ -408,26 +314,25 @@ onMounted(async () => {
     color: #fff;
 }
 
-
 .summary-item {
-  display: flex;
-  justify-content: center; /* 왼쪽 정렬 */
-  align-items: center;
+    display: flex;
+    justify-content: center; /* 왼쪽 정렬 */
+    align-items: center;
 }
 
 .summary-item .date {
-  width: 250px;
-  font-size: 20px; /* 글씨 크기 키움 */
+    width: 250px;
+    font-size: 20px; /* 글씨 크기 키움 */
 }
 
 .summary-item .name {
-  width: 250px;
-  font-size: 20px; /* 글씨 크기 키움 */
+    width: 250px;
+    font-size: 20px; /* 글씨 크기 키움 */
 }
 
 .summary-item .price {
-  width: 250px;
-  text-align: right;
-  font-size: 20px; /* 글씨 크기 키움 */
+    width: 250px;
+    text-align: right;
+    font-size: 20px; /* 글씨 크기 키움 */
 }
 </style>
