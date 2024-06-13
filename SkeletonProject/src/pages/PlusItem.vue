@@ -2,13 +2,13 @@
   <div>
     <div class="row">
       <div class="col p-3">
-        <h2>지출</h2>
+        <h2>수입</h2>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <div class="form-group mb-3"> 
+        <div class="form-group mb-3">
           <label for="name">내역</label>
           <input
             type="text"
@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group mb-3">
-          <label for="price">가격</label>
+          <label for="price">금액</label>
           <input
             type="number"
             class="form-control"
@@ -31,11 +31,9 @@
         <div class="form-group mb-3">
           <label for="category">카테고리</label>
           <select class="form-control" v-model="moneyItem.category_id">
-            <option value="4">식비</option>
-            <option value="5">교통</option>
-            <option value="6">쇼핑</option>
-            <option value="7">의료</option>
-            <option value="8">기타</option>
+            <option value="1">월급</option>
+            <option value="2">용돈</option>
+            <option value="3">기타</option>
           </select>
         </div>
 
@@ -46,26 +44,6 @@
             id="memo"
             v-model="moneyItem.memo"
           ></textarea>
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="asset">자산</label>
-          <div>
-            <input
-              type="radio"
-              id="cash"
-              value="cash"
-              v-model="moneyItem.asset_type"
-            />
-            <label for="cash">현금</label>
-            <input
-              type="radio"
-              id="card"
-              value="card"
-              v-model="moneyItem.asset_type"
-            />
-            <label for="card">카드</label>
-          </div>
         </div>
 
         <div class="form-group mb-3">
@@ -102,26 +80,25 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
-import { use_money_list_store } from '@/stores/ItemList.js';
-import axios from 'axios';
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
+import { use_money_list_store } from "@/stores/ItemList.js";
+import axios from "axios";
 
 const router = useRouter();
 const { fetch_money_list } = use_money_list_store();
 
 const moneyItem = reactive({
-  name: '',
+  name: "",
   price: 0,
-  category_id: '',
-  asset_type: 'cash', // 기본값을 현금으로 설정
-  memo: '',
-  date: '',
+  category_id: "",
+  memo: "",
+  date: "",
 });
 
 const addMoneyHandler = async () => {
-  if (!moneyItem.name || moneyItem.name.trim() === '') {
-    alert('내역을 반드시 입력해야 합니다');
+  if (!moneyItem.name || moneyItem.name.trim() === "") {
+    alert("내역을 반드시 입력해야 합니다");
     return;
   }
 
@@ -129,7 +106,6 @@ const addMoneyHandler = async () => {
     name: moneyItem.name,
     price: parseFloat(moneyItem.price),
     category_id: moneyItem.category_id,
-    asset_type: moneyItem.asset_type,
     datetime: moneyItem.date
       ? new Date(moneyItem.date).toISOString()
       : new Date().toISOString(),
@@ -137,15 +113,11 @@ const addMoneyHandler = async () => {
   };
 
   try {
-    await axios.post('/api/items', newItem);
+    await axios.post("/api/items", newItem);
     fetch_money_list(); // 목록 갱신
-    router.push('/');
+    router.push("/");
   } catch (error) {
-    alert('에러 발생: ' + error);
+    alert("에러 발생: " + error);
   }
 };
 </script>
-
-<style scoped>
-/* 스타일 설정 */
-</style>
