@@ -1,54 +1,6 @@
 {
   "items": [
     {
-      "id": "553d",
-      "name": "돈까스",
-      "price": 8000,
-      "category_id": "4",
-      "datetime": "2024-06-11T15:46:55.416Z",
-      "memo": ""
-    },
-    {
-      "id": "9832",
-      "name": "안과",
-      "price": 80000,
-      "category_id": "7",
-      "datetime": "2024-06-11T15:47:04.874Z",
-      "memo": ""
-    },
-    {
-      "id": "672e",
-      "name": "감자탕",
-      "price": 15000,
-      "category_id": "4",
-      "datetime": "2024-06-11T15:47:14.603Z",
-      "memo": ""
-    },
-    {
-      "id": "c823",
-      "name": "오마카세",
-      "price": 150000,
-      "category_id": "4",
-      "datetime": "2024-06-11T15:47:29.082Z",
-      "memo": ""
-    },
-    {
-      "id": "a31e",
-      "name": "신발",
-      "price": 200000,
-      "category_id": "6",
-      "datetime": "2024-06-11T15:47:46.742Z",
-      "memo": ""
-    },
-    {
-      "id": "c406",
-      "name": "지하철",
-      "price": 100000,
-      "category_id": "5",
-      "datetime": "2024-06-08T15:48:02.506Z",
-      "memo": ""
-    },
-    {
       "id": "47fd",
       "name": "경조사",
       "price": 100000,
@@ -97,16 +49,34 @@
       "memo": ""
     },
     {
-      "id": "fd88",
-      "name": "밀크쉐이크",
-      "price": 4000,
-      "category_id": "4"
+      "id": "9470",
+      "name": "하하",
+      "price": 900,
+      "category_id": "6"
     },
     {
-      "id": "ca15",
-      "name": "딸기",
-      "price": 3000,
-      "category_id": "4"
+      "id": "49ea",
+      "name": "ㄷ",
+      "price": 0,
+      "category_id": "4",
+      "datetime": "2024-06-11T00:00:00.000Z",
+      "memo": "ㅇㅇㅇ"
+    },
+    {
+      "id": "7534",
+      "name": "ㅇㅇㅇ",
+      "price": 0,
+      "category_id": "4",
+      "datetime": "2024-06-13T03:07:07.801Z",
+      "memo": "ㅇㅇㅇㅇ"
+    },
+    {
+      "id": "690b",
+      "name": "ㅇㅇㅇ",
+      "price": 0,
+      "category_id": "5",
+      "datetime": "2024-06-17T00:00:00.000Z",
+      "memo": "ㅇㅇㅇㅇ"
     }
   ],
   "profile": [
@@ -114,6 +84,11 @@
       "name": "",
       "email": "",
       "id": "ccac"
+    },
+    {
+      "id": "17f4",
+      "name": "홍길동",
+      "email": "wpfkff525@naver.cod"
     }
   ],
   "category": [

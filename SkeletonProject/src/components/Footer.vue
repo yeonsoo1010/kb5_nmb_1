@@ -14,9 +14,9 @@
         </div>
     </div>
     <div></div>
-    <router-link id="plus" class="btn btn-warning" to="/home/add" style="text-align: center"> <i class="fa-solid fa-plus"></i> 수입 </router-link>
+    <router-link id="plus" class="btn" to="/home/add" style="text-align: center"> <i class="fa-solid fa-plus"></i> 수입 </router-link>
     <div></div>
-    <router-link id="minus" class="btn btn-warning" to="/home/add" style="text-align: center"> <i class="fa-solid fa-minus"></i> 지출 </router-link>
+    <router-link id="minus" class="btn" to="/home/add" style="text-align: center"> <i class="fa-solid fa-minus"></i> 지출 </router-link>
 </template>
 
 <script setup>
@@ -27,6 +27,7 @@ const router = useRouter();
 const goToAddItemPage = () => {
     router.push("/additem");
 };
+// box;
 
 const showMemo = ref(false);
 
@@ -42,7 +43,7 @@ const toggleMemo = () => {
     right: 50px;
     width: 50px;
     height: 50px;
-    color: white;
+    /* color: white; */
     align-items: center;
     justify-content: center;
 
@@ -91,23 +92,33 @@ const toggleMemo = () => {
 #minus {
     position: fixed;
     bottom: 50px;
-    right: 180px;
-    width: 100px;
-    height: 50px;
+    left: calc(50% + 10px);
+    width: 200px;
+    height: 100px;
     color: white;
-    align-items: center;
-    justify-content: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #ff9aa2;
+    font-size: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 #plus {
     position: fixed;
     bottom: 50px;
-    right: 300px;
-    width: 100px;
-    height: 50px;
+    left: calc(50% - 240px);
+    width: 200px;
+    height: 100px;
     color: white;
-    align-items: center;
-    justify-content: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #55d8a8;
+    font-size: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 </style>
