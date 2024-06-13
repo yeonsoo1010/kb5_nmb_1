@@ -49,6 +49,26 @@
         </div>
 
         <div class="form-group mb-3">
+          <label for="asset">자산</label>
+          <div>
+            <input
+              type="radio"
+              id="cash"
+              value="cash"
+              v-model="moneyItem.asset_type"
+            />
+            <label for="cash">현금</label>
+            <input
+              type="radio"
+              id="card"
+              value="card"
+              v-model="moneyItem.asset_type"
+            />
+            <label for="card">카드</label>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
           <label for="date">날짜</label>
           <input
             type="date"
@@ -82,24 +102,26 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import { useRouter } from "vue-router";
-import { use_money_list_store } from "@/stores/ItemList.js";
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { use_money_list_store } from '@/stores/ItemList.js';
+import axios from 'axios';
 
 const router = useRouter();
 const { fetch_money_list } = use_money_list_store();
 
 const moneyItem = reactive({
-  name: "",
+  name: '',
   price: 0,
-  category_id: "",
-  memo: "",
-  date: "",
+  category_id: '',
+  asset_type: 'cash', // 기본값을 현금으로 설정
+  memo: '',
+  date: '',
 });
 
 const addMoneyHandler = async () => {
-  if (!moneyItem.name || moneyItem.name.trim() === "") {
-    alert("내역을 반드시 입력해야 합니다");
+  if (!moneyItem.name || moneyItem.name.trim() === '') {
+    alert('내역을 반드시 입력해야 합니다');
     return;
   }
 
@@ -107,6 +129,7 @@ const addMoneyHandler = async () => {
     name: moneyItem.name,
     price: parseFloat(moneyItem.price),
     category_id: moneyItem.category_id,
+    asset_type: moneyItem.asset_type,
     datetime: moneyItem.date
       ? new Date(moneyItem.date).toISOString()
       : new Date().toISOString(),
@@ -114,11 +137,15 @@ const addMoneyHandler = async () => {
   };
 
   try {
-    await axios.post("/api/items", newItem);
+    await axios.post('/api/items', newItem);
     fetch_money_list(); // 목록 갱신
-    router.push("/");
+    router.push('/');
   } catch (error) {
-    alert("에러 발생: " + error);
+    alert('에러 발생: ' + error);
   }
 };
 </script>
+
+<style scoped>
+/* 스타일 설정 */
+</style>

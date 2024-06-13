@@ -3,9 +3,8 @@
     {
       "id": "553d",
       "name": "돈까스",
-      "price": 8000,
       "category_id": "4",
-      "datetime": "2024-06-11T15:46:55.416Z",
+      "price": 8000,
       "memo": ""
     },
     {
@@ -13,6 +12,7 @@
       "name": "안과",
       "price": 80000,
       "category_id": "7",
+      "asset_type": "card",
       "datetime": "2024-06-11T15:47:04.874Z",
       "memo": ""
     },
@@ -21,6 +21,7 @@
       "name": "감자탕",
       "price": 15000,
       "category_id": "4",
+      "asset_type": "card",
       "datetime": "2024-06-11T15:47:14.603Z",
       "memo": ""
     },
@@ -29,6 +30,7 @@
       "name": "오마카세",
       "price": 150000,
       "category_id": "4",
+      "asset_type": "card",
       "datetime": "2024-06-11T15:47:29.082Z",
       "memo": ""
     },
@@ -37,6 +39,7 @@
       "name": "신발",
       "price": 200000,
       "category_id": "6",
+      "asset_type": "card",
       "datetime": "2024-06-11T15:47:46.742Z",
       "memo": ""
     },
@@ -45,6 +48,7 @@
       "name": "지하철",
       "price": 100000,
       "category_id": "5",
+      "asset_type": "card",
       "datetime": "2024-06-08T15:48:02.506Z",
       "memo": ""
     },
@@ -53,6 +57,7 @@
       "name": "경조사",
       "price": 100000,
       "category_id": "8",
+      "asset_type": "card",
       "datetime": "2024-06-11T15:48:26.915Z",
       "memo": ""
     },
@@ -61,6 +66,7 @@
       "name": "돈까스",
       "price": 8000,
       "category_id": "4",
+      "asset_type": "card",
       "datetime": "2024-06-12T00:13:02.873Z",
       "memo": ""
     },
@@ -69,6 +75,7 @@
       "name": "비행기",
       "price": 200000,
       "category_id": "5",
+      "asset_type": "cash",
       "datetime": "2024-04-12T00:15:25.032Z",
       "memo": ""
     },
@@ -77,6 +84,7 @@
       "name": "부모님용돈",
       "price": 500000,
       "category_id": "8",
+      "asset_type": "cash",
       "datetime": "2024-05-10T01:59:35.928Z",
       "memo": ""
     },
@@ -85,6 +93,7 @@
       "name": "월급",
       "price": 500000,
       "category_id": "1",
+      "asset_type": "cash",
       "datetime": "2024-05-11T01:59:35.928Z",
       "memo": ""
     },
@@ -93,20 +102,27 @@
       "name": "기타",
       "price": 500,
       "category_id": "3",
+      "asset_type": "cash",
       "datetime": "2024-05-12T01:58:35.928Z",
       "memo": ""
     },
     {
-      "id": "fd88",
-      "name": "밀크쉐이크",
-      "price": 4000,
-      "category_id": "4"
+      "id": "23b0",
+      "name": "ㅁㅁㄴㅇ",
+      "price": 123,
+      "category_id": "4",
+      "asset_type": "cash",
+      "datetime": "2024-06-01T00:00:00.000Z",
+      "memo": "ㅁㄴㅇㅁㄴㅇ"
     },
     {
-      "id": "ca15",
-      "name": "딸기",
-      "price": 3000,
-      "category_id": "4"
+      "id": "be8c",
+      "name": "수호천재",
+      "price": 100000,
+      "category_id": "4",
+      "asset_type": "card",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "학식"
     }
   ],
   "profile": [
