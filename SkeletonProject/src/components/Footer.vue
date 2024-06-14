@@ -41,11 +41,11 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-import { ref } from 'vue';
+import { useRouter } from "vue-router";
+import { ref } from "vue";
 const router = useRouter();
 const goToAddItemPage = () => {
-  router.push('/additem');
+  router.push("/additem");
 };
 
 const showMemo = ref(false);
@@ -60,19 +60,19 @@ const toggleMemo = () => {
   right: 50px;
   width: 50px;
   height: 50px;
-  /* color: white; */
+
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0; /* 밝은 회색 배경색 */
-  color: #333; /* 텍스트 색상 */
-  border: none; /* 테두리 제거 */
-  padding: 10px 20px; /* 내부 여백 */
-  border-radius: 5px; /* 둥근 테두리 */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 3D 효과를 주는 그림자 */
-  transition: box-shadow 0.3s ease; /* 부드러운 애니메이션 효과 */
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 .custom-button:hover {
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* 호버시 그림자 증가 */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
 }
 .memo-container {
   position: absolute;
@@ -83,11 +83,11 @@ const toggleMemo = () => {
   background-color: #f0f0f0;
   border-radius: 5px;
   padding: 10px;
-  z-index: 999; /* 메모 창이 다른 요소 위에 나타나도록 설정 */
+  z-index: 999;
 }
 .memo-content {
-  font-size: 14px; /* 글꼴 크기 설정 */
-  color: #333; /* 글꼴 색상 설정 */
+  font-size: 14px;
+  color: #333;
 }
 .triangle {
   width: 0;
@@ -131,7 +131,7 @@ const toggleMemo = () => {
 }
 #plus:hover,
 #minus:hover {
-  filter: brightness(1.3); /* 밝기를 증가시켜 더 진한 색상으로 표시 */
+  filter: brightness(1.3);
 }
 #question:hover {
   filter: brightness(1.3);

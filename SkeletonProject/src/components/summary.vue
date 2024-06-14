@@ -323,7 +323,7 @@ const categoryTitle = (categoryId) => {
   const category = money_list_store.categories.find(
     (cat) => cat.id === categoryId
   );
-  const icon = categoryIcons[categoryId] || "❓"; // 기본 아이콘 설정
+  const icon = categoryIcons[categoryId] || "❓";
   return category ? `${icon} ${category.title}` : "Unknown";
 };
 
@@ -342,11 +342,11 @@ const categoryIcons = {
   1: "💰",
   2: "🎁",
   3: "📦",
-  4: "🍴", // 식비 아이콘
-  5: "🚇", // 교통 아이콘
-  6: "🛍️", // 쇼핑 아이콘
-  7: "💊", // 의료 아이콘
-  8: "🔧", // 기타 아이콘
+  4: "🍴",
+  5: "🚇",
+  6: "🛍️",
+  7: "💊",
+  8: "🔧",
 };
 
 const categoryColors = {
@@ -374,7 +374,7 @@ onMounted(async () => {
 .container {
   max-height: 80vh;
   overflow-y: auto;
-  padding: 0 15px; /* padding을 추가하여 내부 콘텐츠가 좌우로 붙지 않도록 함 */
+  padding: 0 15px;
 }
 
 .nav-tabs .nav-link.active {
@@ -389,7 +389,7 @@ onMounted(async () => {
 
 .summary-item {
   display: flex;
-  justify-content: center; /* 중앙 정렬 */
+  justify-content: center;
   align-items: center;
 }
 
@@ -410,21 +410,18 @@ onMounted(async () => {
 }
 
 .list-container {
-  max-height: 60vh; /* 리스트의 최대 높이 설정 */
-  overflow-y: auto; /* Y축 스크롤바 활성화 */
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
-/* 전체 스크롤바 */
 .list-container::-webkit-scrollbar {
-  width: 12px; /* 스크롤바 너비 */
+  width: 12px;
 }
 
-/* 스크롤바 트랙 */
 .list-container::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* 스크롤바 핸들 */
 .list-container::-webkit-scrollbar-thumb {
   background: #888;
 }
