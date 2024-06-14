@@ -43,10 +43,10 @@
                     <label htmlFor="price">메모 :</label>
                     <input type="text" class="form-control" id="memo" maxlength="50" v-model="moneyItem.memo" />
                 </div>
-
+                <br />
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary m-1" @click="updateMoneyHandler">수 정</button>
-                    <button type="button" class="btn btn-primary m-1" @click="router.push('/')">취 소</button>
+                    <button type="button" class="btn btn-secondary m-1" @click="updateMoneyHandler">수 정</button> &nbsp;
+                    <button type="button" class="btn btn-secondary m-1" @click="router.push('/')">취 소</button>
                 </div>
             </div>
         </div>

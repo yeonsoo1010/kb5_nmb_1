@@ -3,17 +3,20 @@
         <div class="chart-wrapper">
             <div class="controls">
                 <br />
-                <br />
+
                 <div class="custom-select">
                     <button @click="toggleDropdown" class="selected-option">
                         {{ selectedMonth }}
                     </button>
+
                     <ul class="dropdown" :class="{ show: isDropdownOpen }">
                         <li v-for="month in availableMonths" :key="month" @click="selectMonth(month)">
                             {{ month }}
                         </li>
                     </ul>
                 </div>
+                <br />
+                <br />
             </div>
             <div class="chart-area">
                 <canvas ref="chartCanvas" class="responsive-chart"></canvas>
@@ -253,8 +256,8 @@ watch(selectedMonth, updateChart);
 }
 .legend li {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: flex-start;
     margin-bottom: 5px;
 }
 .legend-color {

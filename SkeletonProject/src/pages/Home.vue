@@ -3,9 +3,7 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-auto p-3">
                 <router-link to="/home/edit/editlist">
-                    <button class="btn btn-outline-secondary">
-                        <i class="fa-regular fa-trash-can"> </i>
-                    </button>
+                    <button class="btn btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i> 편집 / 삭제</button>
                 </router-link>
             </div>
         </div>

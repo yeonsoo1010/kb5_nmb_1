@@ -12,12 +12,12 @@
                 <a class="nav-link" :class="{ active: currentTab === 'category' }" @click="currentTab = 'category'" style="font-size: 20px">카테고리별</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" :class="{ active: currentTab === 'asset' }" @click="currentTab = 'asset'" style="font-size: 20px">자산별</a>
+                <a class="nav-link" :class="{ active: currentTab === 'asset' }" @click="currentTab = 'asset'" style="font-size: 20px">결제방식별</a>
             </li>
         </ul>
 
         <div class="mt-3" style="text-align: center">
-            <div class="alert alert-info">
+            <div class="alert alert-info" style="border-color: #f6f5f2; background-color: #f6f5f2">
                 <div class="d-flex justify-content-center">
                     <div style="margin-right: 140px">
                         <h4>
@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <br />
-                                <h3>📃 목록</h3>
+                                <h4>📃 목록</h4>
                             </div>
                         </div>
                     </div>
@@ -311,7 +311,13 @@ onMounted(async () => {
 <style scoped>
 .nav-tabs .nav-link.active {
     background-color: #ffc107;
+    border-radius: 5px 5px 0 0;
+
     color: #fff;
+}
+
+.nav-link {
+    color: black;
 }
 
 .summary-item {

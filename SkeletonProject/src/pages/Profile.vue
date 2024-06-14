@@ -16,7 +16,7 @@
                 </div>
                 <br />
                 <div class="button-container">
-                    <button type="submit" class="btn btn-warning"><i class="fas fa-save"></i> 저장</button>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> 저장</button>
                     &nbsp; &nbsp;
                     <button type="button" class="btn btn-danger" @click="clearProfile"><i class="fa-solid fa-delete-left"></i>초기화</button>
                 </div>
