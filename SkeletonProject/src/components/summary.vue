@@ -21,19 +21,19 @@
                 <div class="d-flex justify-content-center">
                     <div style="margin-right: 140px">
                         <h4>
-                            수입:
+                            총 수입:
                             <span style="color: blue"> {{ formatCurrency(alltotalIncome) }}원 </span>
                         </h4>
                     </div>
                     <div style="margin-right: 150px">
                         <h4>
-                            지출:
+                            총 지출:
                             <span style="color: red"> {{ formatCurrency(money_list_store.totalExpense) }}원 </span>
                         </h4>
                     </div>
                     <div>
                         <h4>
-                            합계:
+                            총 합계:
                             {{ formatCurrency(alltotalIncome - money_list_store.totalExpense) }}원
                         </h4>
                     </div>
