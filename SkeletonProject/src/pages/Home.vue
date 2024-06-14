@@ -1,21 +1,25 @@
 <template>
-  <div>
-    <div class="row align-items-center justify-content-between">
-      <div class="col-auto p-3">
-        <router-link to="/home/edit/editlist">
-          <button class="btn btn-outline-secondary">
-            <i class="fa-regular fa-trash-can"> </i>
-          </button>
-        </router-link>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-7">
-        <div class="list-container">
-          <ul class="list-group">
-            <HomeItem />
-            <Footer></Footer>
-          </ul>
+    <div>
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto p-3">
+                <router-link to="/home/edit/editlist">
+                    <button class="btn btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i> 편집 / 삭제</button>
+                </router-link>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <div class="list-container">
+                    <ul class="list-group">
+                        <HomeItem />
+                        <!-- v-for="moneyItem in sortedMoneyList"
+              :key="moneyItem.id"
+              :moneyItem="moneyItem" -->
+                        <Footer></Footer>
+                    </ul>
+                </div>
+            </div>
+
         </div>
       </div>
     </div>

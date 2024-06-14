@@ -1,210 +1,161 @@
 {
-    "items": [
-        {
-            "id": "9f44",
-            "name": "용돈",
-            "price": 500000,
-            "category_id": "2",
-            "datetime": "2024-06-13T00:00:00.000Z",
-            "memo": "용돈"
-        },
-        {
-            "name": "스시",
-            "price": 300000,
-            "category_id": "4",
-            "datetime": "2024-06-06",
-            "memo": "맛있음",
-            "id": "770a"
-        },
-        {
-            "id": "e3f2",
-            "name": "전달",
-            "price": 200000,
-            "category_id": "6",
-            "asset_type": "card",
-            "datetime": "2024-06-05T00:00:00.000Z",
-            "memo": "ㅇㅇ"
-        },
-        {
-            "name": "테스트 편집 편집",
-            "price": 50000,
-            "category_id": "6",
-            "asset_type": "card",
-            "datetime": "2024-06-11T15:47:46.742Z",
-            "memo": ""
-        },
-        {
-            "id": "c406",
-            "name": "지하철",
-            "price": 100000,
-            "category_id": "5",
-            "asset_type": "card",
-            "datetime": "2024-06-08T15:48:02.506Z",
-            "memo": ""
-        },
-        {
-            "id": "47fd",
-            "name": "경조사",
-            "price": 100000,
-            "category_id": "8",
-            "asset_type": "card",
-            "datetime": "2024-06-11T15:48:26.915Z",
-            "memo": ""
-        },
-        {
-            "id": "6911",
-            "name": "아이스크림",
-            "price": 100,
-            "category_id": "4",
-            "asset_type": "card",
-            "datetime": "2024-06-12T00:13:02.873Z",
-            "memo": ""
-        },
-        {
-            "id": "7922",
-            "name": "비행기",
-            "price": 200000,
-            "category_id": "5",
-            "asset_type": "cash",
-            "datetime": "2024-04-12T00:15:25.032Z",
-            "memo": ""
-        },
-        {
-            "id": "d973",
-            "name": "부모님용돈",
-            "price": 500000,
-            "category_id": "8",
-            "asset_type": "cash",
-            "datetime": "2024-05-10T01:59:35.928Z",
-            "memo": ""
-        },
-        {
-            "id": "d946",
-            "name": "월급",
-            "price": 500000,
-            "category_id": "1",
-            "asset_type": "cash",
-            "datetime": "2024-05-11T01:59:35.928Z",
-            "memo": ""
-        },
-        {
-            "id": "d989",
-            "name": "기타",
-            "price": 500,
-            "category_id": "3",
-            "asset_type": "cash",
-            "datetime": "2024-05-12T01:58:35.928Z",
-            "memo": ""
-        },
-        {
-            "id": "23b0",
-            "name": "날짜수정확인",
-            "category_id": "5",
-            "price": 123000,
-            "datetime": "2024-06-10",
-            "asset_type": "card",
-            "memo": "수정메모_카드"
-        },
-        {
-            "id": "be8c",
-            "name": "수호천재",
-            "price": 100000,
-            "category_id": "4",
-            "asset_type": "card",
-            "datetime": "2024-06-13T00:00:00.000Z",
-            "memo": "학식"
-        },
-        {
-            "id": "fdf9",
-            "name": "5월 용돈",
-            "price": 2500000,
-            "category_id": "2",
-            "datetime": "2024-05-08T00:00:00.000Z",
-            "memo": "용"
-        },
-        {
-            "id": "6133",
-            "name": "5월 용돈",
-            "price": 2000000,
-            "category_id": "2",
-            "datetime": "2024-05-15T00:00:00.000Z",
-            "memo": "ㅇㅇㅇ"
-        },
-        {
-            "id": "5c6b",
-            "name": "빵",
-            "price": 800,
-            "category_id": "4",
-            "datetime": "2024-04-10T00:00:00.000Z",
-            "memo": "ㅇㅇㅇㅇ"
-        },
-        {
-            "id": "a84c",
-            "name": "용돈",
-            "price": 10000,
-            "category_id": "1",
-            "datetime": "2024-06-12T00:00:00.000Z",
-            "memo": "ㅁㅁㅁ"
-        },
-        {
-            "id": "f8d1",
-            "name": "과자",
-            "price": 4000,
-            "category_id": "4",
-            "datetime": "2024-06-12T00:00:00.000Z",
-            "memo": "ㅁ"
-        }
-    ],
-    "profile": [
-        {
-            "name": "",
-            "email": "",
-            "id": "ccac"
-        },
-        {
-            "id": "7452"
-        }
-    ],
-    "category": [
-        {
-            "id": "1",
-            "title": "월급",
-            "type": "income"
-        },
-        {
-            "id": "2",
-            "title": "용돈",
-            "type": "income"
-        },
-        {
-            "id": "3",
-            "title": "기타",
-            "type": "income"
-        },
-        {
-            "id": "4",
-            "title": "식비",
-            "type": "outcome"
-        },
-        {
-            "id": "5",
-            "title": "교통",
-            "type": "outcome"
-        },
-        {
-            "id": "6",
-            "title": "쇼핑",
-            "type": "outcome"
-        },
-        {
-            "id": "7",
-            "title": "의료",
-            "type": "outcome"
-        },
-        {
-            "id": "8",
-            "title": "기타",
-            "type": "outcome"
-        }
-    ]
+
+  "items": [
+    {
+      "id": "d58b",
+      "name": "오므라이스",
+      "price": 5500,
+      "category_id": "4",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "학생회관"
+    },
+    {
+      "id": "1ceb",
+      "name": "트렌드",
+      "price": 50000,
+      "category_id": "6",
+      "datetime": "2024-06-06T00:00:00.000Z",
+      "memo": "빨버"
+    },
+    {
+      "id": "142e",
+      "name": "안과",
+      "price": 40000,
+      "category_id": "7",
+      "datetime": "2024-06-07T00:00:00.000Z",
+      "memo": "눈아픔"
+    },
+    {
+      "id": "6911",
+      "name": "아이스크림",
+      "price": 100,
+      "category_id": "4",
+      "datetime": "2024-06-12T00:00:00.000Z",
+      "memo": "먹고싶다"
+    },
+    {
+      "id": "ff34",
+      "name": "용돈",
+      "price": 100,
+      "category_id": "2",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": "방"
+    },
+    {
+      "id": "fdf9",
+      "name": "5월 용돈",
+      "price": 2500000,
+      "category_id": "2",
+      "datetime": "2024-05-08T00:00:00.000Z",
+      "memo": "용"
+    },
+    {
+      "id": "6133",
+      "name": "5월 용돈",
+      "price": 2000000,
+      "category_id": "2",
+      "datetime": "2024-05-15T00:00:00.000Z",
+      "memo": "ㅇㅇㅇ"
+    },
+    {
+      "id": "5c6b",
+      "name": "빵",
+      "price": 800,
+      "category_id": "4",
+      "datetime": "2024-04-10T00:00:00.000Z",
+      "memo": "ㅇㅇㅇㅇ"
+    },
+    {
+      "id": "a84c",
+      "name": "용돈",
+      "price": 10000,
+      "category_id": "1",
+      "datetime": "2024-06-12T00:00:00.000Z",
+      "memo": "ㅁㅁㅁ"
+    },
+    {
+      "id": "f8d1",
+      "name": "과자",
+      "price": 4000,
+      "category_id": "4",
+      "datetime": "2024-06-12T00:00:00.000Z",
+      "memo": "ㅁ"
+    },
+    {
+      "id": "c221",
+      "name": "용돈",
+      "price": 12300,
+      "category_id": "4",
+      "asset_type": "cash",
+      "datetime": "2024-06-13T00:00:00.000Z",
+      "memo": ""
+    },
+    {
+      "id": "f8f2",
+      "name": "6월용돈",
+      "price": 50000,
+      "category_id": "1",
+      "datetime": "2024-06-01T00:00:00.000Z",
+      "memo": "테스트"
+    },
+    {
+      "id": "c613",
+      "name": "아이스크림",
+      "price": 1000000,
+      "category_id": "4",
+      "asset_type": "card",
+      "datetime": "2024-06-05T00:00:00.000Z",
+      "memo": "테스트"
+    }
+  ],
+  "profile": [
+    {
+      "name": "",
+      "email": "",
+      "id": "ccac"
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "title": "월급",
+      "type": "income"
+    },
+    {
+      "id": "2",
+      "title": "용돈",
+      "type": "income"
+    },
+    {
+      "id": "3",
+      "title": "기타",
+      "type": "income"
+    },
+    {
+      "id": "4",
+      "title": "식비",
+      "type": "outcome"
+    },
+    {
+      "id": "5",
+      "title": "교통",
+      "type": "outcome"
+    },
+    {
+      "id": "6",
+      "title": "쇼핑",
+      "type": "outcome"
+    },
+    {
+      "id": "7",
+      "title": "의료",
+      "type": "outcome"
+    },
+    {
+      "id": "8",
+      "title": "기타",
+      "type": "outcome"
+    }
+  ]
 }
+
