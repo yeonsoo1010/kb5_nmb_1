@@ -56,9 +56,9 @@ export const use_money_list_store = defineStore("money_list", () => {
 
     // 기존 money_list 아이템 변경합니다.
 
-    const update_money = async ({ id, name, category_id, price, date, memo }, successCallback) => {
+    const update_money = async ({ id, name, category_id, price, datetime, asset_type, memo }, successCallback) => {
         try {
-            const payload = { id, name, category_id, price, date, memo };
+            const payload = { id, name, category_id, price, datetime, asset_type, memo };
             const response = await axios.put(BASEURI + `/${id}`, payload);
             if (response.status === 200) {
                 let index = state.money_list.findIndex((moneyItem) => moneyItem.id === id);
