@@ -14,12 +14,12 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label htmlFor="price">가격 :</label>
+                    <label htmlFor="price">금액 </label>
                     <input type="number" class="form-control" id="price" v-model="moneyItem.price" />
                 </div>
                 <br />
                 <div class="form-group">
-                    <label htmlFor="category">카테고리 :</label>
+                    <label htmlFor="category">카테고리 </label>
                     <select class="form-control" v-model="moneyItem.category_id">
                         <optgroup label="수입">
                             <option value="1">월급</option>
@@ -37,7 +37,7 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label htmlFor="date">날짜 :</label>
+                    <label htmlFor="date">날짜 </label>
                     <input type="date" class="form-control" id="datetime" v-model="moneyItem.datetime" />
                 </div>
                 <!-- <div class="form-group">
@@ -45,13 +45,8 @@
                     <input type="text" class="form-control" ref="datepicker" v-model="moneyItem.datetime" />
                     <p>선택한 날짜: {{ moneyItem.datetime }}</p>
                 </div> -->
-                <br />
-                <div class="form-group">
-                    <label htmlFor="price">메모 :</label>
-                    <input type="text" class="form-control" id="memo" maxlength="50" v-model="moneyItem.memo" />
-                </div>
-                <br />
 
+                <br />
                 <div class="form-group mb-3">
                     <label for="asset">자산</label>
                     <div>
@@ -61,7 +56,13 @@
                         <label for="card">&nbsp;카드</label>
                     </div>
                 </div>
+
+                <div class="form-group mb-3">
+                    <label for="memo">메모</label>
+                    <textarea class="form-control" id="memo" v-model="moneyItem.memo"></textarea>
+                </div>
                 <br />
+
                 <div class="form-group">
                     <button type="button" class="btn btn-secondary m-1" @click="updateMoneyHandler">수 정</button> &nbsp;
                     <button type="button" class="btn btn-secondary m-1" @click="router.push('/')">취 소</button>

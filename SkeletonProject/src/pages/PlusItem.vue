@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col p-3">
-                <h2>수입</h2>
+                <h3>수입</h3>
             </div>
         </div>
 
@@ -12,47 +12,36 @@
                     <label for="name">내역</label>
                     <input type="text" class="form-control" id="moneyItem" v-model="moneyItem.name" />
                 </div>
-
-                <div class="form-group mb-3">
-                    <label for="price">금액</label>
-                    <input type="number" class="form-control" id="price" v-model="moneyItem.price" />
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="category">카테고리</label>
-                    <select class="form-control" v-model="moneyItem.category_id">
-                        <option value="1">월급</option>
-                        <option value="2">용돈</option>
-                        <option value="3">기타</option>
-                    </select>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="memo">메모</label>
-                    <textarea class="form-control" id="memo" v-model="moneyItem.memo"></textarea>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="asset">자산</label>
-                    <div>
-                        <input type="radio" id="cash" value="cash" v-model="moneyItem.asset_type" />
-                        <label for="cash">&nbsp; 현금 &nbsp; </label>
-                        <input type="radio" id="card" value="card" v-model="moneyItem.asset_type" />
-                        <label for="card">&nbsp; 카드</label>
-                    </div>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="date">날짜</label>
-                    <input type="date" class="form-control" id="date" v-model="moneyItem.date" />
-                </div>
             </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="price">가격</label>
+            <input type="number" class="form-control" id="price" v-model="moneyItem.price" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="category">카테고리</label>
+            <select class="form-control" v-model="moneyItem.category_id">
+                <option value="1">월급</option>
+                <option value="2">용돈</option>
+                <option value="3">기타</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="date">날짜</label>
+            <input type="date" class="form-control" id="date" v-model="moneyItem.date" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="memo">메모</label>
+            <textarea class="form-control" id="memo" v-model="moneyItem.memo"></textarea>
         </div>
 
         <div class="row mt-4">
             <div class="col text-center">
-                <button id="add1" type="button" class="btn btn-secondary m-1" @click="addMoneyHandler">추가</button>
-                <button id="add1" type="button" class="btn btn-secondary m-1" @click="router.push('/')">취소</button>
+                <button type="button" class="btn btn-secondary m-1" @click="addMoneyHandler">추가</button>
+                <button type="button" class="btn btn-secondary m-1" @click="router.push('/')">취소</button>
             </div>
         </div>
     </div>
