@@ -9,39 +9,57 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label htmlFor="name">내역 :</label>
+                    <label htmlFor="name">내역 </label>
                     <input type="text" class="form-control" id="money" v-model="moneyItem.name" />
                 </div>
-
+                <br />
                 <div class="form-group">
                     <label htmlFor="price">가격 :</label>
                     <input type="number" class="form-control" id="price" v-model="moneyItem.price" />
                 </div>
-
+                <br />
                 <div class="form-group">
                     <label htmlFor="category">카테고리 :</label>
                     <select class="form-control" v-model="moneyItem.category_id">
-                        <option value="4">식비</option>
-                        <option value="5">교통</option>
-                        <option value="6">쇼핑</option>
-                        <option value="7">의료</option>
-                        <option value="8">기타</option>
+                        <optgroup label="수입">
+                            <option value="1">월급</option>
+                            <option value="2">용돈</option>
+                            <option value="3">기타</option>
+                        </optgroup>
+                        <optgroup label="지출">
+                            <option value="4">식비</option>
+                            <option value="5">교통</option>
+                            <option value="6">쇼핑</option>
+                            <option value="7">의료</option>
+                            <option value="8">기타</option>
+                        </optgroup>
                     </select>
                 </div>
-
+                <br />
                 <div class="form-group">
-                    <label htmlFor="price">날짜 :</label>
-                    <input type="number" class="form-control" id="datetime" v-model="moneyItem.datetime" />
+                    <label htmlFor="date">날짜 :</label>
+                    <input type="date" class="form-control" id="datetime" v-model="moneyItem.datetime" />
                 </div>
                 <!-- <div class="form-group">
                     <label for="price">날짜 :</label>
                     <input type="text" class="form-control" ref="datepicker" v-model="moneyItem.datetime" />
                     <p>선택한 날짜: {{ moneyItem.datetime }}</p>
                 </div> -->
-
+                <br />
                 <div class="form-group">
                     <label htmlFor="price">메모 :</label>
                     <input type="text" class="form-control" id="memo" maxlength="50" v-model="moneyItem.memo" />
+                </div>
+                <br />
+
+                <div class="form-group mb-3">
+                    <label for="asset">자산</label>
+                    <div>
+                        <input type="radio" id="cash" value="cash" v-model="moneyItem.asset_type" />
+                        <label for="cash">&nbsp;현금 &nbsp;&nbsp;&nbsp;</label>
+                        <input type="radio" id="card" value="card" v-model="moneyItem.asset_type" />
+                        <label for="card">&nbsp;카드</label>
+                    </div>
                 </div>
                 <br />
                 <div class="form-group">

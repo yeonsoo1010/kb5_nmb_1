@@ -1,9 +1,23 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col p-3">
-                <h2>지출</h2>
-            </div>
+
+  <div>
+    <div class="row">
+      <div class="col p-3">
+        <h2>지출</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group mb-3">
+          <label for="name">내역</label>
+          <input
+            type="text"
+            class="form-control"
+            id="moneyItem"
+            v-model="moneyItem.name"
+          />
+
         </div>
 
         <div class="row">
@@ -29,6 +43,7 @@
                     </select>
                 </div>
 
+
                 <div class="form-group mb-3">
                     <label for="memo">메모</label>
                     <textarea class="form-control" id="memo" v-model="moneyItem.memo"></textarea>
@@ -43,6 +58,7 @@
                         <label for="card">&nbsp; 카드</label>
                     </div>
                 </div>
+
 
                 <div class="form-group mb-3">
                     <label for="date">날짜</label>
@@ -84,6 +100,7 @@ const addMoneyHandler = async () => {
         return;
     }
 
+
     const newItem = {
         name: moneyItem.name,
         price: parseFloat(moneyItem.price),
@@ -92,6 +109,7 @@ const addMoneyHandler = async () => {
         datetime: moneyItem.date ? new Date(moneyItem.date).toISOString() : new Date().toISOString(),
         memo: moneyItem.memo,
     };
+
 
     try {
         await axios.post("/api/items", newItem);
