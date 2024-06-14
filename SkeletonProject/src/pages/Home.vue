@@ -14,9 +14,6 @@
         <div class="list-container">
           <ul class="list-group">
             <HomeItem />
-            <!-- v-for="moneyItem in sortedMoneyList"
-              :key="moneyItem.id"
-              :moneyItem="moneyItem" -->
             <Footer></Footer>
           </ul>
         </div>
@@ -46,20 +43,17 @@ const sortedMoneyList = computed(() => {
 <style scoped>
 .list-container {
   max-height: 550px;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
+  overflow-y: auto;
 }
 
-/* 전체 스크롤바 */
 .list-container::-webkit-scrollbar {
-  width: 12px; /* 스크롤바 너비 */
+  width: 12px;
 }
 
-/* 스크롤바 트랙 */
 .list-container::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* 스크롤바 핸들 */
 .list-container::-webkit-scrollbar-thumb {
   background: #888;
 }
